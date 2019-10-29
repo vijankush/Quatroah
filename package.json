@@ -1,0 +1,24 @@
+{
+  "name": "quat-stats",
+  "version": "1.0.0",
+  "description": "The objective of the Quatroah team is to work on developing a website that displays scores, standings, and relevant news aggregated from your favorite teams. We will implement API from popular sources such as ESPN to show up-to-date data from players chosen teams. We will also implement an algorithm to display NBA and NFL winning rates and update it periodically with latest predictions. It also will predict the wins/losses of different opponent match ups, allowing logged in users to monitor different games.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riyadsarsour/Comp426Final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riyadsarsour/Comp426Final/issues"
+  },
+  "homepage": "https://github.com/riyadsarsour/Comp426Final#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bulma": "^0.8.0",
+    "jquery": "^3.4.1"
+  }
+}
