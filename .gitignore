@@ -58,5 +58,6 @@ typings/
 .env
 
 # other files
+*.cache
 cw.code-workspace
 .firebaserc

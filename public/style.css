@@ -1,7 +1,4 @@
 /* NAVBAR STYLES */
-/*
-
-*/
 
 .navbar-burger {
     display: block;
@@ -15,7 +12,7 @@
 }
 
 @media screen and (max-width: 1023px) {
-    /* .navbar, .navbar-item {
+    .navbar, .navbar-item {
         display: flex;
         /* align-items: stretch; */
     }
@@ -33,5 +30,5 @@
     .navbar-start, .navbar-end {
         display: flex;
         align-items: stretch;
-    } */
+    }
 }
