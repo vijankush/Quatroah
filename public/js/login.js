@@ -29,8 +29,8 @@ function resetStatus() {
 
     // remove notification
     $('.notification').removeClass('is-danger is-success')
-                      .addClass('is-hidden')
-                      .contents().filter(isTextNode).remove();
+        .addClass('is-hidden')
+        .contents().filter(isTextNode).remove();
 }
 
 /**
@@ -141,7 +141,12 @@ $(document).ready(() => {
         $('.tab-content[data-tab="' + tab + '"]').addClass('is-active');
     });
 
-    // view first tab automatically
-    $('.tabs li').first().addClass('is-active');
-    $('.tab-content[data-tab="1"]').addClass('is-active');
+    // view specified tab automatically
+    if (window.location.hash === '#signup') {
+        $('.tabs li').last().addClass('is-active');
+        $('.tab-content[data-tab="2"]').addClass('is-active');
+    } else {
+        $('.tabs li').first().addClass('is-active');
+        $('.tab-content[data-tab="1"]').addClass('is-active');
+    }
 });
