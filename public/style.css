@@ -89,3 +89,13 @@
     from {transform: scale(0)}
     to {transform: scale(1)}
   }
+
+
+/* LOGIN PAGE STYLES */
+.tab-content {
+  display: none;
+}
+
+.tab-content.is-active {
+  display: block;
+}
