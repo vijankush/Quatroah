@@ -1,5 +1,3 @@
-import { rootCertificates } from "tls";
-
 /**
  * 
  * user object must be created 
