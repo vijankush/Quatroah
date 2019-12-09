@@ -1,36 +1,29 @@
 /* NAVBAR STYLES */
 
+.bg-primary {
+  background-color: white;
+}
+
+.navbar {
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+
+}
+
 .navbar-burger {
     display: block;
 }
 
 #logo {
-    font-size: 1.5em;
-    padding-left: 20px;
-    padding-right: 20px;
-    letter-spacing: 0.075em;
-}
+  background-image: url(https://i.ibb.co/cDMFrfZ/1c2cd0b5-5858-4944-ab1e-3f28b7a4be9f-200x200-1.png);
+  background-position: center center;
+  background-size: 120% 100%;
+  height: 70px;
+  width: 70px;
+  /* border-block-style: solid lightblue; */
 
-@media screen and (max-width: 1023px) {
-    .navbar, .navbar-item {
-        display: flex;
-        /* align-items: stretch; */
-    }
-
-    .navbar-start {
-        justify-content: flex-end;
-        margin-left: auto;
-    }
-    
-    .navbar-end {
-        justify-content: flex-start;
-        margin-right: auto;
-    }
-
-    .navbar-start, .navbar-end {
-        display: flex;
-        align-items: stretch;
-    }
 }
 
 /* The Modal (background) */
