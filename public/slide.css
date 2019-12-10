@@ -10,46 +10,53 @@ div.jumbotron.carousel-hero {
 
 div.jumbotron.hero-nature {
   background-image: url(https://image.winudf.com/v2/image1/bGl0dGxlYXBwYXMubmJhaGQud2FsbHBhcGVyc19zY3JlZW5fOF8xNTY4MjQ5MDE2XzAzMg/screen-8.jpg?fakeurl=1&type=.jpg);
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        background-size: cover;
+        background-size: cover; */
+        transition: all .75s ease;
+
 }
 
 div.jumbotron.hero-photography {
   background-image: url(https://wallpaperaccess.com/full/128225.jpg);
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        background-size: cover;
+        background-size: cover; */
+        transition: all .75s ease;
+
 }
 
 div.jumbotron.hero-technology {
   background-image: url(https://www.10wallpaper.com/wallpaper/1366x768/1710/LeBron_James_NBA_2017_Cleveland_Cavaliers_Wallpaper_1366x768.jpg);
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        background-size: cover;
+        background-size: cover; */
+
 }
 
 h1.hero-title, h2.hero-title, h3.hero-title {
   text-shadow: 0 3px 3px rgba(0,0,0,0.4);
   text-align: left;
-  font-size: 40px;
+  font-size: 50px;
   text-transform: uppercase;
   font-family: Raleway,sans-serif;
-  color: black;
+  color: #fff;
   font-weight: 800;
   line-height: normal;
 }
 
 p.hero-subtitle {
   max-width: 600px;
-  text-align: left;
-  padding-top: 30px;
-  padding-bottom: 40px;
-  /* padding: 10px 15px; */
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: Montserrat,sans-serif;
   color: #fff;
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 30px;
 }
 
 .plat {
@@ -73,6 +80,14 @@ p.hero-subtitle {
 
 .btn-primary.focus, .btn-primary:focus {
   box-shadow: 0 0 0 .2rem rgba(0,123,255,.5);
+}
+
+* {
+  /*box-sizing: inherit;*/
+}
+
+*:before, *:after {
+  /*box-sizing: inherit;*/
 }
 
 span {

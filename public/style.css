@@ -1,5 +1,5 @@
 /* NAVBAR STYLES */
-html,body { height:100%; }
+html,body { height:100%;  }
 
 .custom-header {
   background: #292c2f;
@@ -124,6 +124,8 @@ img.dropdown-image {
   width: 100%;
   height: 200%;
   padding: 0;
+  transition: all .75s ease;
+
 }
 
 .dropdown-menu-right {
