@@ -61,3 +61,6 @@ typings/
 *.cache
 cw.code-workspace
 .firebaserc
+
+
+.DS_Store

@@ -5,7 +5,14 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "rewrites": [{
+      "source": "/helloWorld",
+      "function": "helloWorld"
+    }, {
+      "source": "/teams/nba",
+      "function": "teamsNba"
+    }]
   },
   "functions": {
     "predeploy": [
