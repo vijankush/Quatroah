@@ -65,7 +65,6 @@ $(document).ready(() => {
     $('#login').on('click', function () {
         // reset indicators
         resetStatus();
-
         // retreive values
         const email = $('#lemail').val();
         const pword = $('#lpword').val();
@@ -75,7 +74,6 @@ $(document).ready(() => {
             $('#lemail').addClass('is-danger');
             return;
         }
-
         // check if correct password format
         if (pword === '') {
             $('#lpword').addClass('is-danger');
@@ -90,6 +88,8 @@ $(document).ready(() => {
             renderNotification(errorMessage);
             console.log(errorCode);
         });
+
+        
     });
 
     // sign up button click handler
@@ -101,7 +101,10 @@ $(document).ready(() => {
         const email = $('#email').val();
         const pword = $('#pword').val();
         const rpword = $('#rpword').val();
-
+        const fName =$('#fName').val();
+        const lName = $('#lName').val();
+        const phoneNumber = $('#phoneNumber').val();
+        
         // check if correct email format
         if (email === '' || !isEmail(email)) {
             $('#email').addClass('is-danger');
@@ -121,13 +124,22 @@ $(document).ready(() => {
         }
 
         // create new user
-        firebase.auth().createUserWithEmailAndPassword(email, pword).catch(function (error) {
+        firebase.auth().createUserWithEmailAndPassword(email, pword).then((userCredential) => {
+            // other way: firebase.auth().currentUser.uid
+            firebase.firestore().collection('users').doc(userCredential.user.uid).set({
+                firstName: fName,
+                lastName: lName,
+                phoneNum: phoneNumber
+            });
+        }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             renderNotification(errorMessage);
             console.log(errorCode);
         });
+
+
     });
 
     // tabs click handler
