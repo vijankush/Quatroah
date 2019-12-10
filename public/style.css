@@ -30,11 +30,11 @@ html,body { height:100%;  }
 }
 
 .custom-header ul.nav.navbar-nav.links li a {
-  font: 16px Roboto;
+  /* font: 16px Roboto; */
   opacity: 0.9;
   text-decoration: none;
   color: #fff;
-  background: #292c2f;
+  background: hsl(210, 7%, 17%);
   border: 0;
   padding-right: 20px;
 }
