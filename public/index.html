@@ -7,11 +7,12 @@
     <title>Quatroah</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="slide.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="slide.css">
     
-
     <!-- jquery library-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -27,7 +28,30 @@
 </head>
 
 <body>
-    <nav class="navbar bg-primary" role="navigation" aria-label="main navigation">
+    <!-- NEW MENU -->
+
+    <nav class="navbar navbar-light navbar-expand-md custom-header">
+            <div class="container-fluid">
+                <div><a class="navbar-brand" href="#">Company<span>logo </span></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+                <div
+                    class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav links">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Overview </a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Surveys </a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#"> Reports</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="#"> Roles<span class="badge badge-pill badge-primary">new</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><img class="dropdown-image" src="avatar.jpg" /></a>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" role="presentation" href="#">Settings </a><a class="dropdown-item" role="presentation" href="#">Payments </a><a class="dropdown-item" role="presentation" href="#">Logout </a></div>
+                        </li>
+                    </ul>
+            </div>
+            </div>
+        </nav>
+
+    <!-- DISREGARD THIS L8R-->
+    <!-- <nav class="navbar bg-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-start">
             <div class="navbar-item">
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -56,7 +80,7 @@
                 </a>
             </div>
         </div>
-    </nav>
+    </nav> -->
     <!-- SLIDER -->
     <section id="carousel">
         <div class="carousel slide" data-ride="carousel" id="carousel-1">
