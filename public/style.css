@@ -58,6 +58,18 @@ html,body { height:100%;  }
   background: #3a3c3e;
 } */
 
+.card-group{
+  padding-top: 10px;
+  background-color: cadetblue;
+}
+
+.column > .card{
+  box-sizing: border-box;
+  margin-right: 7px;
+  margin-left: 7px;
+  margin-bottom: 10px;
+}
+
 .custom-header li.dropdown .dropdown-toggle {
   border-radius: 2px;
   color: #fff;
