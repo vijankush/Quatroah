@@ -10,8 +10,8 @@
       "source": "/helloWorld",
       "function": "helloWorld"
     }, {
-      "source": "/teams/nba",
-      "function": "teamsNba"
+      "source": "/api{,/**}",
+      "function": "api"
     }]
   },
   "functions": {
