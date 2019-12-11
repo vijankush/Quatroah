@@ -190,6 +190,8 @@ img.dropdown-image {
 .pricing6 .card.card-shadow {
   -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
   box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+  background-image: url('pics/match.jpg');
+  background-size: cover;
 }
 
 .pricing6 .price-box sup {
@@ -200,6 +202,10 @@ img.dropdown-image {
 .pricing6 .price-box .display-5 {
   line-height: 58px;
   font-size: 3rem;
+}
+
+.pb-2, .py-2 {
+  padding-bottom: 1rem!important;
 }
 
 .pricing6 .btn-info-gradiant {
@@ -218,6 +224,10 @@ img.dropdown-image {
   background: -webkit-linear-gradient(left, #316ce8 0%, #188ef4 100%);
   background: -o-linear-gradient(left, #316ce8 0%, #188ef4 100%);
   background: linear-gradient(to right, #316ce8 0%, #188ef4 100%);
+}
+
+.text-dark {
+  color: white !important;
 }
 
 .pricing6 .text-info {

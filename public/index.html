@@ -148,7 +148,14 @@
                 <!-- column  -->
                 <div class="col-md-6">
                   <div class="card card-shadow border-0 mb-4">
-                    <div class="card-body p-4">
+                    <div class="card-body p-4" id="pullmatch">
+                      <div class="d-flex align-items-center">
+                          <div class="align-self-center">
+                              <ul class="list-inline pl-3 font-14 font-weight-medium text-dark" id="latest">
+                              </ul>
+                            </div>
+                      </div>
+                      
                       <!-- <div class="d-flex align-items-center">
                         <h5 class="font-weight-medium mb-0">Basic Plan</h5>
                         <div class="ml-auto"><span class="badge badge-danger font-weight-normal p-2">Popular</span></div>
@@ -207,8 +214,10 @@
           </div>
 
     <!-- SCRIPTS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/matches.js"></script>
 
 </body>
 
