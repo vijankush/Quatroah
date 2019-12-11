@@ -31,14 +31,24 @@ const ABBR_TEAMS = {
     'wizards': 'was',
 }
 
-async function latestmatches() {
-    // get today's date
+/**
+ * Helper function to get today's date
+ */
+function getTodayDate() {
     var today = new Date();
     today.setDate(today.getDate());
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
+    return yyyy + '-' + mm + '-' + dd;
+}
+
+/**
+ * Get upcoming matchups and add to page
+ */
+async function latestMatches() {
+    // get today's date
+    const today = getTodayDate();
 
     // get the current games
     const results = await axios({
@@ -49,62 +59,58 @@ async function latestmatches() {
             'per_page': 5
         }
     });
+
     // add results to div
     const matchups = results.data.data;
-  // console.log(matchups)
     matchups.forEach((matchup) => {
         //console.log(matchup.status)
-        if(matchup.period != 0){
+        if (matchup.period != 0) {
+            $('#scores').append(`<div class="scoreCard"><i class="icon-check text-info mr-2"></i> <span>
+                ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name} <br />
+                ${matchup.home_team_score} -- ${matchup.visitor_team_score}
+                ${matchup.status}: ${matchup.time}
+                </span></div>`);
+        } else {
             $('#scores').append(`<div class="scoreCard"><i class="icon-check text-info mr-2"></i> <span>` +
-            matchup.home_team.full_name + 
-                ` vs. ` + matchup.visitor_team.full_name +`<br>`
-                 + matchup.home_team_score+  `--` + matchup.visitor_team_score+ " " 
-                 + matchup.status + ": " + matchup.time +  
-                `</span></div>`);
-        } else{
-            $('#scores').append(`<div class="scoreCard"><i class="icon-check text-info mr-2"></i> <span>` +
-            matchup.home_team.full_name +
-                ` vs. ` + matchup.visitor_team.full_name + `<br>`+` Tip-Off: `+ matchup.status
-                + "  on " + matchup.date.substring(0,9)+
+                matchup.home_team.full_name +
+                ` vs. ` + matchup.visitor_team.full_name + `<br>` + ` Tip-Off: ` + matchup.status
+                + "  on " + matchup.date.substring(0, 9) +
                 `</span></div>`);
         }
     });
 
 }
 
-// append latest headlines
+/**
+ * Get recent sports headlines and add to page
+ */
 async function latestNews() {
-    var today = new Date();
-    today.setDate(today.getDate());
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
+    // get today's date
+    const today = getTodayDate();
 
-    let results = await axios({
+    // get the latest news
+    const results = await axios({
         method: 'get',
-        url: 'https://newsapi.org/v2/everything?' +
-        'sources=bleacher-report&' +
-        'q=NBA&' +
-        'from=' +today +
-        'sortBy=popularity&' +
-        'apiKey=8f3a0442a29d4456b8eb58c8f5b8e6d4'
+        url: 'https://newsapi.org/v2/everything',
+        params: {
+            'sources': 'bleacher-report',
+            'q': 'NBA',
+            'from': today,
+            'sortBy': 'popularity',
+            'apiKey': '8f3a0442a29d4456b8eb58c8f5b8e6d4'
+        }
     });
 
-    for(let i =0; i <5; i++){
+    for (let i = 0; i < 5; i++) {
         let link = results.data.articles[i].url;
         //console.log(link)
         $('#miniNewsFeed').append(`<div class="card headlineCard newsCards""><i class="icon-check text-info mr-2"></i> <span> 
         <a href="${link}">
         ${results.data.articles[i].title} </a> </span></div>`);
-
     }
-
 }
 
-function initialize() {
-    latestmatches();
+$(document).ready(() => {
+    latestMatches();
     latestNews();
-}
-
-$(document).ready(initialize());
+});

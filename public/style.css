@@ -18,7 +18,13 @@
 }
 
 /* CARD STYLING */
-.newsCards > span{
+.primary-card {
+  min-height: 50vh;
+  max-height: 50vh;
+  overflow: scroll;
+}
+
+.newsCards > span {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   padding: 2px 16px;
@@ -29,12 +35,12 @@
   
 }
 
-.newsCards:hover{
+.newsCards:hover {
   background-color: skyblue;
   color: #212529;
 }
 
-.scoreCard{
+.scoreCard {
   box-shadow: 0 4px 8px 0 rgba(113, 9, 9, 0.2);
   transition: 0.3s;
   padding: 2px 16px;
@@ -43,6 +49,8 @@
   font-size: large;
   background-color: whitesmoke;
 }
+
+/* NAVBAR STYLES */
 
 .custom-header {
   background: #292c2f;
@@ -225,7 +233,7 @@ input.is-danger {
 }
 
 /* MATCH CARDS */
-.pricing6 {
+/* .pricing6 {
   font-family: "Montserrat", sans-serif;
   color: #8d97ad;
   font-weight: 300;
@@ -304,17 +312,11 @@ input.is-danger {
 
 .pricing6 .font-14 {
   font-size: 14px;
-}
+} */
 
-body {
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  width: 100%;
-  background: #07051a;
-}
+/* SEARCHBAR STYLES */
 
-form{
+form {
   position: relative;
   top: 50%;
   left: 50%;
@@ -330,7 +332,7 @@ form{
   margin-left: 10px;
 }
 
-input{
+input {
   position: absolute;
   top: 0;
   left: 0;
@@ -345,7 +347,7 @@ input{
   padding: 0 20px;
 }
 
-.fa{
+.fa {
   box-sizing: border-box;
   padding: 10px;
   width: 42.5px;
@@ -360,16 +362,16 @@ input{
   transition: all 1s;
 }
 
-form:hover{
+form:hover {
   width: 300px;
   cursor: pointer;
 }
 
-form:hover input{
+form:hover input {
   display: block;
 }
 
-form:hover .fa{
+form:hover .fa {
   background: #07051a;
   color: white;
 }
