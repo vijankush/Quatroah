@@ -52,17 +52,30 @@ async function getMatches(){
         method: 'get',
         url: 'https://www.balldontlie.io/api/v1/games',
         params: {
-            'dates[]': dates,
-            'per_page': 25
+            'start_date':weekAgo, 
+            'end_date': today,
+            'per_page': 35
         }
     });
     // add results to div
     const matchups = results.data.data;
     matchups.forEach((matchup) => {
-        $('#scoreFeed').append(`<div class="card scoreCards" ><i class="icon-check text-info mr-2"></i> <span>` 
-        + matchup.home_team.full_name +
-            ` vs. ` + matchup.visitor_team.full_name +
-            `</span></div>`);
+        
+            if(matchup.period != 0){
+                $('#scoreFeed').append(`<div class="card scoreCards"><i class="icon-check text-info mr-2"></i> <span>` +
+                matchup.home_team.full_name + 
+                    ` vs. ` + matchup.visitor_team.full_name +`<br>`
+                     + matchup.home_team_score+  `--` + matchup.visitor_team_score+ " " 
+                     + matchup.status + ": " + matchup.time +  
+                    `</span></div>`);
+            }
+            // } else{
+            //     $('#scoreFeed').append(`<div class="card scoreCards"><i class="icon-check text-info mr-2"></i> <span>` +
+            //     matchup.home_team.full_name +
+            //         ` vs. ` + matchup.visitor_team.full_name + `<br>`+` Tip-Off: `+ matchup.status+ 
+            //         "   on " + matchup.date.substring(0,10)+
+            //         `</span></div>`);
+            // }
     });
 
 }

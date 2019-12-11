@@ -22,7 +22,7 @@ async function getNews() {
         let link = results.data.articles[i].url;
         $('#newsFeed').append(`<div class="card headlineCard newsCards">` +
         `<i class="icon-check text-info mr-2"></i> <span>`+
-        `<a href="link"> ${results.data.articles[i].title} </a> </span></div>`);
+        `<a href="${link}"> ${results.data.articles[i].title} </a> </span></div>`);
     }
 
 }

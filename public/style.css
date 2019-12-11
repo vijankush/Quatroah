@@ -9,6 +9,41 @@ html,body { height:100%;  }
   margin-right: -25px;
 }
 
+.slideText{
+  font-size: 27px;
+  padding-top: 8px;
+  padding-bottom: 10x;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: goldenrod;
+}
+
+/* CARD STYLING */
+.newsCards > span{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin-top: 5px;
+  margin-bottom: 4px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: large;
+  
+}
+
+.newsCards:hover{
+  background-color: skyblue;
+  color: #212529;
+}
+
+.scoreCard{
+  box-shadow: 0 4px 8px 0 rgba(113, 9, 9, 0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin-top: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: large;
+  background-color: whitesmoke;
+}
+
 .custom-header {
   background: #292c2f;
   /* padding: 20px 40px; */
@@ -68,6 +103,7 @@ html,body { height:100%;  }
   margin-right: 7px;
   margin-left: 7px;
   margin-bottom: 10px;
+  background-color: rgb(255, 191, 28);
 }
 
 .custom-header li.dropdown .dropdown-toggle {

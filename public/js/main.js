@@ -51,18 +51,25 @@ async function latestmatches() {
     });
     // add results to div
     const matchups = results.data.data;
+  // console.log(matchups)
     matchups.forEach((matchup) => {
-        $('#scores').append(`<li class="py-2"><i class="icon-check text-info mr-2"></i> <span>` + matchup.home_team.full_name +
-            ` vs. ` + matchup.visitor_team.full_name +
-            `</span></li>`);
+        //console.log(matchup.status)
+        if(matchup.period != 0){
+            $('#scores').append(`<div class="scoreCard"><i class="icon-check text-info mr-2"></i> <span>` +
+            matchup.home_team.full_name + 
+                ` vs. ` + matchup.visitor_team.full_name +`<br>`
+                 + matchup.home_team_score+  `--` + matchup.visitor_team_score+ " " 
+                 + matchup.status + ": " + matchup.time +  
+                `</span></div>`);
+        } else{
+            $('#scores').append(`<div class="scoreCard"><i class="icon-check text-info mr-2"></i> <span>` +
+            matchup.home_team.full_name +
+                ` vs. ` + matchup.visitor_team.full_name + `<br>`+` Tip-Off: `+ matchup.status
+                + "  on " + matchup.date.substring(0,9)+
+                `</span></div>`);
+        }
     });
-    // for (let i=0; i<10; i++) {
-    //     var home_logo = teamLogos(data[i].home_team.name);
-    //     var url = "b" + home_logo + ".png" 
-    //     console.log(home_logo);
-    //     console.log(url);
-    //     $latest.append(`<li class="py-2"><i class="icon-check text-info mr-2"></i> <span>`+ data[i].home_team.full_name + ` vs. `+ data[i].visitor_team.full_name + `</span></li>`);
-    // }
+
 }
 
 // append latest headlines
@@ -84,12 +91,13 @@ async function latestNews() {
         'apiKey=8f3a0442a29d4456b8eb58c8f5b8e6d4'
     });
 
-    console.log(results.data);
     for(let i =0; i <5; i++){
         let link = results.data.articles[i].url;
-        $('#miniNewsFeed').append(`<li class="py-2"><i class="icon-check text-info mr-2"></i> <span> 
-        <a href="link">
-        ${results.data.articles[i].title} </a> </span></li>`);
+        //console.log(link)
+        $('#miniNewsFeed').append(`<div class="card headlineCard newsCards""><i class="icon-check text-info mr-2"></i> <span> 
+        <a href="${link}">
+        ${results.data.articles[i].title} </a> </span></div>`);
+
     }
 
 }
