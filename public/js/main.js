@@ -30,8 +30,8 @@ async function teamLogos(name) {
         'timberwolves': 'min',
         'warriors': 'gsw',
         'wizards': 'was',
-      }
-      teams[name.toLowerCase()];
+    }
+    teams[name.toLowerCase()];
 
 }
 
@@ -46,7 +46,7 @@ async function latestmatches() {
     today = yyyy + '-' + mm + '-' + dd;
 
     // get the current games
-    const results = await axios ({
+    const results = await axios({
         method: 'get',
         url: 'https://www.balldontlie.io/api/v1/games',
         params: {
@@ -58,7 +58,7 @@ async function latestmatches() {
     // add results to div
     const matchups = results.data.data;
     matchups.forEach((matchup) => {
-        $('#latest').append(`<li class="py-2"><i class="icon-check text-info mr-2"></i> <span>`+ matchup.home_team.full_name + ` vs. `+ matchup.visitor_team.full_name + `</span></li>`);
+        $('#latest').append(`<li class="py-2"><i class="icon-check text-info mr-2"></i> <span>` + matchup.home_team.full_name + ` vs. ` + matchup.visitor_team.full_name + `</span></li>`);
     });
 
     // for (let i=0; i<10; i++) {
@@ -69,9 +69,47 @@ async function latestmatches() {
     //     $latest.append(`<li class="py-2"><i class="icon-check text-info mr-2"></i> <span>`+ data[i].home_team.full_name + ` vs. `+ data[i].visitor_team.full_name + `</span></li>`);
     // }
 
-    
+
 
 }
+
+async function signOut() {
+    await firebase.auth().signOut().then(function () {
+        // Sign-out successful.
+    }).catch(function (error) {
+        // An error happened.
+        console.log("Failed to sign out!", error);
+    });
+}
+
+function renderNavButtons(isLoggedIn) {
+    let btns = '';
+
+    if (isLoggedIn) {
+        btns = '<button class="button is-light" onclick="signOut()"> \
+                    Sign Out \
+                </button>';
+    } else {
+        btns = '<a class="button is-light" href="login.html"> \
+                    Log in \
+                </a> \
+                <a class="button is-info" href="login.html#signup"> \
+                    <strong>Sign up</strong> \
+                </a>';
+    }
+
+    // append to html
+    $('#nav-buttons > div').html(btns);
+}
+
+// see if user has signed in
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) { // user signed in
+        renderNavButtons(true);
+    } else {
+        renderNavButtons(false);
+    }
+});
 
 function initialize() {
     latestmatches();
