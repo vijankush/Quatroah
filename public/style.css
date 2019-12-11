@@ -54,9 +54,9 @@ html,body { height:100%;  }
   font-weight: normal;
 }
 
-.custom-header li.dropdown, .custom-header li.dropdown.open {
-  /* background: #3a3c3e; */
-}
+/* .custom-header li.dropdown, .custom-header li.dropdown.open {
+  background: #3a3c3e;
+} */
 
 .custom-header li.dropdown .dropdown-toggle {
   border-radius: 2px;
@@ -123,6 +123,22 @@ img.dropdown-image {
   width: 200px;
   /* border-block-style: solid lightblue; */
 
+}
+
+/* LOGIN PAGE STYLES */
+.tab-content {
+  display: none;
+}
+
+.tab-content.is-active {
+  display: block;
+}
+
+input.is-danger {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5 ease;
 }
 
 /* SLIDER */
