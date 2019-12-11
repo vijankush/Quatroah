@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -28,6 +29,7 @@
     <script defer src="/__/firebase/init.js"></script>
 
     <script defer type="module" src="js/main.js"></script>
+    <script defer type="module" src="js/debouncing.js"></script>
 </head>
 
 <body>
@@ -50,6 +52,15 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="#"> PREDICTIONS
                             <span class="badge badge-pill badge-primary"> new</span></a></li>
+                    <li class="nav-item" role="presentation">
+                        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+                        <form autocomplete="off" action="">
+                            <div>
+                                <input id="myInput" type="text" placeholder="Search Teams or Players..">
+                            </div>
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </li>
                 </ul>
                 <div class="navbar-item ml-auto" id="login_signup">
                     <div class="buttons">
