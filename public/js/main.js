@@ -147,12 +147,32 @@ function renderNavButtons(isLoggedIn) {
     $('#nav-buttons > div').html(btns);
 }
 
+/**
+ * Render user's favorite teams on the index accordingly
+ * 
+ * @param {*} isLoggedIn True if the user is logged in, false otherwise
+ */
+function renderFavTeams(isLoggedIn) {
+    let teams = '';
+
+    if (isLoggedIn) {
+        teams = '';
+    } else {
+        teams = 'Not logged in';
+    }
+
+    // append to html
+    $('#predict-card .card-text').html(teams);
+}
+
 // see if user has signed in
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) { // user signed in
         renderNavButtons(true);
+        renderFavTeams(true);
     } else {
         renderNavButtons(false);
+        renderFavTeams(false);
     }
 });
 
