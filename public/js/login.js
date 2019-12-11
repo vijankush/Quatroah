@@ -11,6 +11,16 @@ const isEmail = (str) => {
     return regex.test(str);
 }
 
+/*
+* Helper function to determine if a string is a phone number
+* 
+* @param {string} str The string to test 
+*/
+const isPhoneNumber = (str) => {
+    var regex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+    return regex.test(str);
+}
+
 /**
  * Helper function to determine if node is a text node
  * 
@@ -21,6 +31,9 @@ const isTextNode = (_, el) => el.nodeType === Node.TEXT_NODE;
 
 function resetStatus() {
     // remove input indicators
+    $('#fname').removeClass('is-danger');
+    $('#lname').removeClass('is-danger');
+    $('#phoneNumber').removeClass('is-danger');
     $('#lemail').removeClass('is-danger');
     $('#lpword').removeClass('is-danger');
     $('#email').removeClass('is-danger');
@@ -62,7 +75,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 $(document).ready(() => {
     // login button click handler
-    $('#login').on('click', function () {
+    $('#login').on('click', async function () {
         // reset indicators
         resetStatus();
         // retreive values
@@ -72,28 +85,28 @@ $(document).ready(() => {
         // check if correct email format
         if (email === '' || !isEmail(email)) {
             $('#lemail').addClass('is-danger');
+            renderNotification('Invalid email!');
             return;
         }
         // check if correct password format
         if (pword === '') {
             $('#lpword').addClass('is-danger');
+            renderNotification('Password is missing!');
             return;
         }
 
         // try signing in
-        firebase.auth().signInWithEmailAndPassword(email, pword).catch(function (error) {
+        await firebase.auth().signInWithEmailAndPassword(email, pword).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             renderNotification(errorMessage);
             console.log(errorCode);
         });
-
-        
     });
 
     // sign up button click handler
-    $('#signup').on('click', function () {
+    $('#signup').on('click', async function () {
         // reset indicators
         resetStatus();
 
@@ -101,35 +114,60 @@ $(document).ready(() => {
         const email = $('#email').val();
         const pword = $('#pword').val();
         const rpword = $('#rpword').val();
-        const fName =$('#fName').val();
-        const lName = $('#lName').val();
-        const phoneNumber = $('#phoneNumber').val();
-        
+        const fname = $('#fname').val();
+        const lname = $('#lname').val();
+        const number = $('#phoneNumber').val();
+
+        // check if fname given
+        if (fname == '') {
+            $('#fname').addClass('is-danger');
+            renderNotification('First name missing!');
+            return;
+        }
+
+        // check if lname given
+        if (lname == '') {
+            $('#lname').addClass('is-danger');
+            renderNotification('Last name missing!');
+            return;
+        }
+
         // check if correct email format
         if (email === '' || !isEmail(email)) {
             $('#email').addClass('is-danger');
+            renderNotification('Invalid email!');
+            return;
+        }
+
+        // check if correct number format
+        if (number === '' || !isPhoneNumber(number)) {
+            $('#phoneNumber').addClass('is-danger');
+            renderNotification('Invalid phone number!');
             return;
         }
 
         // check if correct password format
         if (pword === '') {
             $('#pword').addClass('is-danger');
+            renderNotification('Password missing!');
             return;
         }
 
         // check if matching password
         if (pword !== rpword) {
             $('#rpword').addClass('is-danger');
+            renderNotification('Passwords don\'t match!');
             return;
         }
 
         // create new user
-        firebase.auth().createUserWithEmailAndPassword(email, pword).then((userCredential) => {
+        await firebase.auth().createUserWithEmailAndPassword(email, pword).then((userCredential) => {
             // other way: firebase.auth().currentUser.uid
-            firebase.firestore().collection('users').doc(userCredential.user.uid).set({
-                firstName: fName,
-                lastName: lName,
-                phoneNum: phoneNumber
+            const uid = userCredential.user['uid'];
+            return firebase.firestore().collection('users').doc(uid).set({
+                firstName: fname,
+                lastName: lname,
+                phoneNum: number
             });
         }).catch(function (error) {
             // Handle Errors here.
@@ -138,8 +176,6 @@ $(document).ready(() => {
             renderNotification(errorMessage);
             console.log(errorCode);
         });
-
-
     });
 
     // tabs click handler

@@ -1,0 +1,258 @@
+[
+    {
+        "name": "Arizona Cardinals",
+        "city": "Arizona",
+        "simpleName": "Cardinals",
+        "abbreviation": "ARI",
+        "conf": "NFC",
+        "div": "West"
+    },
+    {
+        "name": "Atlanta Falcons",
+        "city": "Atlanta",
+        "simpleName": "Falcons",
+        "abbreviation": "ATL",
+        "conf": "NFC",
+        "div": "South"
+    },
+    {
+        "name": "Baltimore Ravens",
+        "city": "Baltimore",
+        "simpleName": "Ravens",
+        "abbreviation": "BAL",
+        "conf": "AFC",
+        "div": "North"
+    },
+    {
+        "name": "Buffalo Bills",
+        "city": "Buffalo",
+        "simpleName": "Bills",
+        "abbreviation": "BUF",
+        "conf": "AFC",
+        "div": "EAST"
+    },
+    {
+        "name": "Carolina Panthers",
+        "city": "Carolina",
+        "simpleName": "Panthers",
+        "abbreviation": "CAR",
+        "conf": "NFC",
+        "div": "South"
+    },
+    {
+        "name": "Cincinati Bengals",
+        "city": "Cincinati",
+        "simpleName": "Bengals",
+        "abbreviation": "CIN",
+        "conf": "AFC",
+        "div": "North"
+    },
+    {
+        "name": "Chicago Bears",
+        "city": "Chicago",
+        "simpleName": "Bears",
+        "abbreviation": "CIN",
+        "conf": "NFC",
+        "div": "North"
+    },
+    {
+        "name": "Cleveland Browns",
+        "city": "Cleveland",
+        "simpleName": "Browns",
+        "abbreviation": "CLE",
+        "conf": "AFC",
+        "div": "North"
+    },
+    {
+        "name": "Dallas Cowboys",
+        "city": "Dallas",
+        "simpleName": "Cowboys",
+        "abbreviation": "DAL",
+        "conf": "NFC",
+        "div": "East"
+    },
+    {
+        "name": "Denver Broncos",
+        "city": "Denver",
+        "simpleName": "Broncos",
+        "abbreviation": "DEN",
+        "conf": "AFC",
+        "div": "West"
+    },
+    {
+        "name": "Detroit Lions",
+        "city": "Detroit",
+        "simpleName": "Lions",
+        "abbreviation": "DET",
+        "conf": "NFC",
+        "div": "North"
+    },
+    {
+        "name": "Green Bay Packers",
+        "city": "Green Bay",
+        "simpleName": "Packers",
+        "abbreviation": "GB",
+        "conf": "NFC",
+        "div": "North"
+    },
+    {
+        "name": "Houston Texans",
+        "city": "Houston",
+        "simpleName": "Texans",
+        "abbreviation": "HOU",
+        "conf": "AFC",
+        "div": "South"
+    },
+    {
+        "name": "Indianapolis Colts",
+        "city": "Indianapolis",
+        "simpleName": "Colts",
+        "abbreviation": "IND",
+        "conf": "AFC",
+        "div": "South"
+    },
+    {
+        "name": "Jacksonville Jaguars",
+        "city": "Jacksonville",
+        "simpleName": "Jaguars",
+        "abbreviation": "JAX",
+        "conf": "AFC",
+        "div": "South"
+    },
+    {
+        "name": "Kansas City Chiefs",
+        "city": "Kansas City",
+        "simpleName": "Chiefs",
+        "abbreviation": "KC",
+        "conf": "AFC",
+        "div": "West"
+    },
+    {
+        "name": "Miami Dolphins",
+        "city": "Miami",
+        "simpleName": "Dolphins",
+        "abbreviation": "MIA",
+        "conf": "AFC",
+        "div": "East"
+    },
+    {
+        "name": "Minnesota Vikings",
+        "city": "Minnesota",
+        "simpleName": "Vikings",
+        "abbreviation": "MIN",
+        "conf": "AFC",
+        "div": "North"
+    },
+    {
+        "name": "New England Patriots",
+        "city": "New England",
+        "simpleName": "Patriots",
+        "abbreviation": "NE",
+        "conf": "AFC",
+        "div": "East"
+    },
+    {
+        "name": "New Orleans Saints",
+        "city": "New Orleans",
+        "simpleName": "Saints",
+        "abbreviation": "NO",
+        "conf": "NFC",
+        "div": "South"
+    },
+    {
+        "name": "New York Giants",
+        "city": "New York",
+        "simpleName": "Giants",
+        "abbreviation": "NYG",
+        "conf": "NFC",
+        "div": "East"
+    },
+    {
+        "name": "New York Jets",
+        "city": "New York",
+        "simpleName": "Jets",
+        "abbreviation": "NYJ",
+        "conf": "AFC",
+        "div": "East"
+    },
+    {
+        "name": "Oakland Raiders",
+        "city": "Oakland",
+        "simpleName": "Raiders",
+        "abbreviation": "OAK",
+        "conf": "AFC",
+        "div": "West"
+    },
+    {
+        "name": "Philadelphia Eagles",
+        "city": "Philidelphia",
+        "simpleName": "Eagles",
+        "abbreviation": "PHI",
+        "conf": "NFC",
+        "div": "East"
+    },
+    {
+        "name": "Pittsburgh Steelers",
+        "city": "Pittsburgh",
+        "simpleName": "Steelers",
+        "abbreviation": "PIT",
+        "conf": "AFC",
+        "div": "North"
+    },
+    {
+        "name": "San Diego Chargers",
+        "city": "San Diego",
+        "simpleName": "Chargers",
+        "abbreviation": "SD",
+        "conf": "AFC",
+        "div": "West"
+    },
+    {
+        "name": "Seattle Seahawks",
+        "city": "Seattle",
+        "simpleName": "Seahawks",
+        "abbreviation": "SEA",
+        "conf": "NFC",
+        "div": "West"
+    },
+    {
+        "name": "San Francisco 49ers",
+        "city": "San Francisco",
+        "simpleName": "49ers",
+        "abbreviation": "SF",
+        "conf": "NFC",
+        "div": "West"
+    },
+    {
+        "name": "St. Louis Rams",
+        "city": "St. Louis",
+        "simpleName": "Rams",
+        "abbreviation": "STL",
+        "conf": "NFC",
+        "div": "West"
+    },
+    {
+        "name": "Tampa Bay Buccaneers",
+        "city": "Tampa Bay",
+        "simpleName": "Buccaneers",
+        "abbreviation": "TB",
+        "conf": "NFC",
+        "div": "South"
+    },
+    {
+        "name": "Tennessee Titans",
+        "city": "Tennessee",
+        "simpleName": "Titans",
+        "abbreviation": "TEN",
+        "conf": "AFC",
+        "div": "South"
+    },
+    {
+        "name": "Washington Redskins",
+        "city": "Washington",
+        "simpleName": "Redskins",
+        "abbreviation": "WAS",
+        "conf": "NFC",
+        "div": "East"
+    }
+]

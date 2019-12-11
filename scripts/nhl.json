@@ -1,0 +1,188 @@
+[
+    {
+        "name": "Anaheim Ducks",
+        "simpleName": "Ducks",
+        "abbreviation": "ANA",
+        "city": "Anaheim"
+    },
+    {
+        "name": "Arizona Coyotes",
+        "abbreviation": "ARI",
+        "simpleName": "Coyotes",
+        "city": "Arizona"
+    },
+    {
+        "name": "Boston Bruins",
+        "abbreviation": "BOS",
+        "simpleName": "Bruins",
+        "city": "Boston"
+    },
+    {
+        "name": "Buffalo Sabres",
+        "abbreviation": "BUF",
+        "simpleName": "Sabres",
+        "city": "Buffalo"
+    },
+    {
+        "name": "Calgary Flames",
+        "abbreviation": "CGY",
+        "simpleName": "Flames",
+        "city": "Calgary"
+    },
+    {
+        "name": "Carolina Hurricanes",
+        "abbreviation": "CAR",
+        "simpleName": "Hurricanes",
+        "city": "Carolina"
+    },
+    {
+        "name": "Chicago Blackhawks",
+        "abbreviation": "CHI",
+        "simpleName": "Blackhawks",
+        "city": "Chicago"
+    },
+    {
+        "name": "Colorado Avalanche",
+        "abbreviation": "COL",
+        "simpleName": "Avalanche",
+        "city": "Colorado"
+    },
+    {
+        "name": "Columbus Blue Jackets",
+        "abbreviation": "CBJ",
+        "simpleName": "Blue Jackets",
+        "city": "Columbus"
+    },
+    {
+        "name": "Dallas Stars",
+        "abbreviation": "DAL",
+        "simpleName": "Stars",
+        "city": "Dallas"
+    },
+    {
+        "name": "Detroit Red Wings",
+        "abbreviation": "DET",
+        "simpleName": "Red Wings",
+        "city": "Detroit"
+    },
+    {
+        "name": "Edmonton Oilers",
+        "abbreviation": "EDM",
+        "simpleName": "Oilers",
+        "city": "Edmonton"
+    },
+    {
+        "name": "Florida Panthers",
+        "abbreviation": "FLA",
+        "simpleName": "Panthers",
+        "city": "Florida"
+    },
+    {
+        "name": "Los Angeles Kings",
+        "abbreviation": "LAK",
+        "simpleName": "Kings",
+        "city": "Los Angeles"
+    },
+    {
+        "name": "Minnesota Wild",
+        "abbreviation": "MIN",
+        "simpleName": "Wild",
+        "city": "Minnesota"
+    },
+    {
+        "name": "Montreal Canadiens",
+        "abbreviation": "MTL",
+        "simpleName": "Canadiens",
+        "city": "Montréal"
+    },
+    {
+        "name": "Nashville Predators",
+        "abbreviation": "NSH",
+        "simpleName": "Predators",
+        "city": "Nashville"
+    },
+    {
+        "name": "New Jersey Devils",
+        "abbreviation": "NJD",
+        "simpleName": "Devils",
+        "city": "New Jersey"
+    },
+    {
+        "name": "New York Islanders",
+        "abbreviation": "NYI",
+        "simpleName": "Islanders",
+        "city": "New York"
+    },
+    {
+        "name": "New York Rangers",
+        "abbreviation": "NYR",
+        "simpleName": "Rangers",
+        "city": "New York"
+    },
+    {
+        "name": "Ottawa Senators",
+        "abbreviation": "OTT",
+        "simpleName": "Senators",
+        "city": "Ottawa"
+    },
+    {
+        "name": "Philadelphia Flyers",
+        "abbreviation": "PHI",
+        "simpleName": "Flyers",
+        "city": "Philadelphia"
+    },
+    {
+        "name": "Pittsburgh Penguins",
+        "abbreviation": "PIT",
+        "simpleName": "Penguins",
+        "city": "Pittsburgh"
+    },
+    {
+        "name": "San Jose Sharks",
+        "abbreviation": "SJS",
+        "simpleName": "Sharks",
+        "city": "San Jose"
+    },
+    {
+        "name": "St. Louis Blues",
+        "abbreviation": "STL",
+        "simpleName": "Blues",
+        "city": "St. Louis"
+    },
+    {
+        "name": "Tampa Bay Lightning",
+        "abbreviation": "TBL",
+        "simpleName": "Lightning",
+        "city": "Tampa Bay"
+    },
+    {
+        "name": "Toronto Maple Leafs",
+        "abbreviation": "TOR",
+        "simpleName": "Maple Leafs",
+        "city": "Toronto"
+    },
+    {
+        "name": "Vancouver Canucks",
+        "abbreviation": "VAN",
+        "simpleName": "Canucks",
+        "city": "Vancouver"
+    },
+    {
+        "name": "Vegas Golden Knights",
+        "abbreviation": "VGK",
+        "simpleName": "Golden Knights",
+        "city": "Las Vegas"
+    },
+    {
+        "name": "Washington Capitals",
+        "abbreviation": "WSH",
+        "simpleName": "Capitals",
+        "city": "Washington"
+    },
+    {
+        "name": "Winnipeg Jets",
+        "abbreviation": "WPG",
+        "simpleName": "Jets",
+        "city": "Winnipeg"
+    }
+]

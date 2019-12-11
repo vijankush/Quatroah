@@ -61,3 +61,7 @@ typings/
 *.cache
 cw.code-workspace
 .firebaserc
+
+
+.DS_Store
+quatroah-firebase-adminsdk-*.json
