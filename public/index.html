@@ -34,17 +34,16 @@
 </head>
 
 <body>
-    <!-- NEW MENU -->
-
+    <!-- NAV MENU -->
     <nav class="navbar navbar-light navbar-expand-md custom-header">
         <div class="container-fluid">
-            <!-- <div><a class="navbar-brand" href="#">Company<span>logo </span></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div> -->
             <div class="navbar-end">
                 <div class="navbar-item">
                     <a role="button" id="logo" href="/">
                     </a>
                 </div>
             </div>
+
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav links">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/">HOME</a></li>
@@ -62,6 +61,7 @@
                         </form>
                     </li>
                 </ul>
+
                 <div class="navbar-item ml-auto" id="nav-buttons">
                     <div class="buttons">
                     </div>
@@ -69,6 +69,7 @@
             </div>
         </div>
     </nav>
+    <!-- END NAV MENU -->
 
     <!-- SLIDER -->
     <section id="carousel">
@@ -119,53 +120,55 @@
     <!-- END SLIDER -->
 
     <!-- CARDS -->
-    <div class="card-group columns">
-        <div class="column">
-            <div class="card primary-card" id="score-card">
-                <div class="card-body">
-                    <h4 class="title card-title">Latest Matchups</h4>
-                    <p class="card-text" id="scores"></p>
+    <section class="section">
+        <div class="columns">
+            <div class="column">
+                <div class="card primary-card" id="score-card">
+                    <div class="card-body">
+                        <h4 class="title card-title">Latest Matchups</h4>
+                        <p class="card-text" id="scores"></p>
+                    </div>
+
+                    <footer class="card-footer">
+                        <a href="scores.html"><button class="btn btn-primary" type="button">See More Scores</button></a>
+                    </footer>
                 </div>
 
-                <footer class="card-footer">
-                    <a href="scores.html"><button class="btn btn-primary" type="button">See More Scores</button></a>
-                </footer>
+                <div class="card primary-card" id="team-card">
+                    <div class="card-body">
+                        <h4 class="title card-title">Favorite Teams</h4>
+                        <p class="card-text"></p>
+                    </div>
+
+                    <footer class="card-footer">
+                        <button class="btn btn-primary" type="button">Button</button>
+                    </footer>
+                </div>
             </div>
 
-            <div class="card primary-card" id="team-card">
-                <div class="card-body">
-                    <h4 class="title card-title">Favorite Teams</h4>
-                    <p class="card-text"></p>
+            <div class="column">
+                <div class="card primary-card" id="news-card">
+                    <div class="card-body">
+                        <h4 class="title card-title">Latest Headlines</h4>
+                        <p class="card-text" id="miniNewsFeed"></p>
+                    </div>
+
+                    <footer class="card-footer">
+                        <a href="news.html"> <button class="btn btn-primary" type="button">More News</button></a>
+                    </footer>
                 </div>
 
-                <footer class="card-footer">
-                    <button class="btn btn-primary" type="button">Button</button>
-                </footer>
+                <div class="card primary-card" id="predict-card">
+                    <div class="card-body">
+                        <h4 class="title card-title">Prediction Calculator</h4>
+                        <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio,
+                            dapibus ac
+                            facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="column">
-            <div class="card primary-card" id="news-card">
-                <div class="card-body">
-                    <h4 class="title card-title">Latest Headlines</h4>
-                    <p class="card-text" id="miniNewsFeed"></p>
-                </div>
-
-                <footer class="card-footer">
-                    <a href="news.html"> <button class="btn btn-primary" type="button">More News</button></a>
-                </footer>
-            </div>
-
-            <div class="card primary-card" id="predict-card">
-                <div class="card-body">
-                    <h4 class="title card-title">Prediction Calculator</h4>
-                    <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio,
-                        dapibus ac
-                        facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
     <!-- END CARDS -->
 
     <!-- <div class="pricing6 py-5 bg-light">

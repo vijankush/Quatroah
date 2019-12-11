@@ -80,9 +80,6 @@ async function getMatches(){
 
 }
 
-
-function initialize() {
+$(document).ready(() => {
     getMatches();
-}
-
-$(document).ready(initialize());
+});

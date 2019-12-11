@@ -27,22 +27,22 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
-    <script defer type="module" src="js/scorepage.js"></script>
+    <script defer type="module" src="js/page.js"></script>
+    <script defer type="module" src="js/scores.js"></script>
 
 </head>
 
 <body>
-    <!-- NEW MENU -->
-
+    <!-- NAV MENU -->
     <nav class="navbar navbar-light navbar-expand-md custom-header">
         <div class="container-fluid">
-            <!-- <div><a class="navbar-brand" href="#">Company<span>logo </span></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div> -->
             <div class="navbar-end">
                 <div class="navbar-item">
                     <a role="button" id="logo" href="/">
                     </a>
                 </div>
             </div>
+
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav links">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/">HOME</a></li>
@@ -51,21 +51,24 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="#"> PREDICTIONS
                             <span class="badge badge-pill badge-primary"> new</span></a></li>
+                    <li class="nav-item" role="presentation">
+                        <form autocomplete="off" action="">
+                            <div>
+                                <input id="myInput" type="text" placeholder="Search Teams or Players..">
+                            </div>
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </li>
                 </ul>
-                <div class="navbar-item ml-auto" id="login_signup">
-                    <div class="buttons">
-                        <a class="button is-light" href="login.html">
-                            Log in
-                        </a>
 
-                        <a class="button is-info" href="login.html#signup">
-                            <strong>Sign up</strong>
-                        </a>
+                <div class="navbar-item ml-auto" id="nav-buttons">
+                    <div class="buttons">
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+    <!-- END NAV MENU -->
 
 
     <!-- BEGIN SCORE CARD DIVS-->

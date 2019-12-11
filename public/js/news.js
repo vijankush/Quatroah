@@ -27,8 +27,6 @@ async function getNews() {
 
 }
 
-function initialize() {
+$(document).ready(() => {
     getNews();
-}
-
-$(document).ready(initialize());
+});
