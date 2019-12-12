@@ -65,8 +65,8 @@ async function getMatches(){
                 $('#scoreFeed').append(`<div class="card scoreCards"><i class="icon-check text-info mr-2"></i> <span>` +
                 matchup.home_team.full_name + 
                     ` vs. ` + matchup.visitor_team.full_name +`<br>`
-                     + matchup.home_team_score+  `--` + matchup.visitor_team_score+ " " 
                      + matchup.status + ": " + matchup.time +  
+                     + matchup.home_team_score+  `--` + matchup.visitor_team_score + 
                     `</span></div>`);
             }
             // } else{
