@@ -18,15 +18,12 @@ div.jumbotron.carousel-hero {
   padding-left: 70px;
   margin-top: 0px;
   margin-bottom: 0;
+  filter: blur(5px);
 }
 
 div.jumbotron.hero-nature {
   background-image: url('pics/1.jpg');
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+  /* opacity: 0.8; */
   -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -36,11 +33,7 @@ div.jumbotron.hero-nature {
 
 div.jumbotron.hero-photography {
   background-image: url('pics/2.jpg');
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+  /* opacity: 0.8; */
   -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -50,11 +43,6 @@ div.jumbotron.hero-photography {
 
 div.jumbotron.hero-technology {
   background-image: url('pics/3.jpg');
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
   -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;

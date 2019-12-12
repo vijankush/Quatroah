@@ -24,6 +24,7 @@
     "csv-parser": "^2.3.2",
     "firebase-admin": "^8.8.0",
     "firebase-functions": "^3.3.0",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "react-nba-logos": "^1.0.6"
   }
 }

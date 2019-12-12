@@ -40,7 +40,7 @@ const TOP_N_HEADLINES = 5;
  */
 function getTodayDate() {
     var today = new Date();
-    today.setDate(today.getDate());
+    today.setDate(today.getDate() - 1);
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
@@ -52,34 +52,43 @@ function getTodayDate() {
  */
 async function latestMatches() {
     // get today's date
-    const today = getTodayDate();
-
+    var today = getTodayDate();
     // get the current games
     const results = await axios({
         method: 'get',
         url: 'https://www.balldontlie.io/api/v1/games',
         params: {
             'dates[]': today,
-            'per_page': 5
+            'per_page': 4
         }
     });
 
     // add results to div
     const matchups = results.data.data;
     matchups.forEach((matchup) => {
-        //console.log(matchup.status)
         if (matchup.period != 0) {
-            $('#scores').append(`<div><span>
-                ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name} <br />
-                ${matchup.home_team_score} -- ${matchup.visitor_team_score}
+            let t1 = "NBA_Logos-master/" + matchup.home_team.city.toLowerCase() + ".png";
+            let t2 = "NBA_Logos-master/" + matchup.visitor_team.city.toLowerCase() + ".png";
+            $('#scores').append(`<div>
+            <img src="${t1}" alt="Avatar" class="md-avatar rounded-circle">
+            <span>
+                ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name}</span>
+            <img src="${t2}" alt="Avatar" class="md-avatar rounded-circle">
+                <span style="font-size: 16px; text-transform: uppercase"> <br />
                 ${matchup.status}: ${matchup.time}
-                </span></div>`);
+                ${matchup.home_team_score} - ${matchup.visitor_team_score}
+                </span>
+            </div>`);
         } else {
-            $('#scores').append(`<div><span>` +
-                matchup.home_team.full_name +
-                ` vs. ` + matchup.visitor_team.full_name + `<br>` + ` Tip-Off: ` + matchup.status
-                + "  on " + matchup.date.substring(0, 9) +
-                `</span></div>`);
+            let t1 = "NBA_Logos-master/" + matchup.home_team.city.toLowerCase() + ".png";
+            let t2 = "NBA_Logos-master/" + matchup.visitor_team.city.toLowerCase() + ".png";
+            $('#scores').append(`<div>
+            <img src="${t1}" alt="Avatar" class="md-avatar rounded-circle">
+            <span>
+                ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name}</span>
+            <img src="${t2}" alt="Avatar" class="md-avatar rounded-circle">
+                <span style="font-size: 16px; text-transform: uppercase"><br />
+                Tip-Off: ${matchup.status} on ${matchup.date.substring(0, 9)}</span></div>`);
         }
     });
 
@@ -105,7 +114,7 @@ async function latestNews() {
         }
     });
 
-    for (let i = 0; i < TOP_N_HEADLINES; i++) {
+    for (let i = 0; i < 6; i++) {
         let link = results.data.articles[i].url;
         //console.log(link)
         $('#miniNewsFeed').append(`<div class="card headlineCard newsCards"><span> 

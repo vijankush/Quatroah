@@ -60,14 +60,20 @@ async function getMatches(){
     // add results to div
     const matchups = results.data.data;
     matchups.forEach((matchup) => {
-        
             if(matchup.period != 0){
-                $('#scoreFeed').append(`<div class="card scoreCards"><i class="icon-check text-info mr-2"></i> <span>` +
-                matchup.home_team.full_name + 
-                    ` vs. ` + matchup.visitor_team.full_name +`<br>`
-                     + matchup.status + ": " + matchup.time +  
-                     + matchup.home_team_score+  `--` + matchup.visitor_team_score + 
-                    `</span></div>`);
+                let t1 = "NBA_Logos-master/" + matchup.home_team.city.toLowerCase() + ".png";
+                let t2 = "NBA_Logos-master/" + matchup.visitor_team.city.toLowerCase() + ".png";
+
+                $('#scoreFeed').append(`<div class="card-content scoreCards" style="text-align: center">
+                <img src="${t1}" alt="Avatar" class="md-avatar rounded-circle">
+                <span>
+                    ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name}</span>
+                <img src="${t2}" alt="Avatar" class="md-avatar rounded-circle">
+                    <span style="font-size: 16px; text-transform: uppercase"> <br />
+                    ${matchup.status}: ${matchup.time}
+                    ${matchup.home_team_score} - ${matchup.visitor_team_score}
+                    </span>
+                </div>`);
             }
             // } else{
             //     $('#scoreFeed').append(`<div class="card scoreCards"><i class="icon-check text-info mr-2"></i> <span>` +
