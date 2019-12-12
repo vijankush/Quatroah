@@ -20,22 +20,25 @@
 
 /* CARD STYLES */
 
-#section1 {
+section#section1 {
   background-image: url(pics/background.jpg);
+  min-height: 90vh;
+  max-height: 90vh;
 }
-
-.section-bg {
-  /* background-image: url('pics/background.jpg'); */
-}
-
 
 .primary-card {
-  min-height: 60vh;
-  max-height: 60vh;
+  min-height: 85vh;
+  max-height: 85vh;
   padding: 1.25em;
 }
 
-.primary-card .card-body {
+.secondary-card {
+  min-height: 45vh;
+  max-height: 45vh;
+  padding: 1.25em;
+}
+
+.primary-card .card-body, .secondary-card .card-body {
   overflow-y: scroll;
   font-size: 20px;
 }
@@ -87,12 +90,7 @@
   margin-bottom: 10px;
   background-image: url('pics/match.jpg') !important;
   background-size: cover !important;
-  min-height: 40rem;
   padding: 0.5rem;
-}
-
-#predict-card {
-  /* PREDICTIONS */
 }
 
 #news-card {
@@ -172,7 +170,6 @@
   background-color: rgba(0,0,0,.7);
   /* background-image: url(pics/match.jpg) !important; */
   background-size: cover !important;
-  min-height: 20em;
 }
 
 /* NAVBAR STYLES */

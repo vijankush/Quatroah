@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quatroah</title>
-    <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.10.1.min.css?ver=4.10.1">
+    <link rel="stylesheet"
+        href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.10.1.min.css?ver=4.10.1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="swipe.css">
@@ -52,12 +53,19 @@
                     <a role="button" id="logo" href="/">
                     </a>
                 </div>
+
+                <a role="button" class="navbar-burger burger" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav links">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/">HOME</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="scores.html">GAME SCORES</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="scores.html">SCORES</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="news.html">NEWS</a></li>
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li> -->
                     <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="predictions.html">
@@ -133,7 +141,7 @@
     <section class="section section-bg" id="section1">
         <div class="columns">
             <div class="column">
-                <div class="card" id="score-card">
+                <div class="card primary-card" id="score-card">
                     <div class="card-body">
                         <h4 class="title card-title has-text-white">Latest Matchups</h4>
                         <hr style="height:10pt; visibility:hidden;" />
@@ -154,7 +162,7 @@
             </div>
 
             <div class="column">
-                <div class="card" id="news-card">
+                <div class="card primary-card" id="news-card">
                     <div class="card-body">
                         <h4 class="title card-title has-text-white">Latest Headlines</h4>
                         <p class="card-text" id="miniNewsFeed"></p>
@@ -193,7 +201,7 @@
                     </footer>
                 </div> -->
 
-                <div class="card" id="team-card">
+                <div class="card secondary-card" id="team-card">
                     <div class="card-body has-text-centered">
                         <h4 class="title card-title has-text-white">Favorite Teams</h4>
                         <p class="card-text has-text-white"></p>
@@ -213,14 +221,15 @@
                     </footer>
                 </div> -->
 
-                <div class="card" id="predict-card">
+                <div class="card secondary-card" id="predict-card">
                     <div class="card-body has-text-centered">
                         <h4 class="title card-title has-text-white">Prediction Calculator</h4>
                         <p class="card-text has-text-white"></p>
                     </div>
 
                     <footer class="card-footer">
-                        <a href="predictions.html"><button class="btn btn-primary" type="button">More Predictions</button></a>
+                        <a href="predictions.html"><button class="btn btn-primary" type="button">More
+                                Predictions</button></a>
                     </footer>
                 </div>
             </div>
