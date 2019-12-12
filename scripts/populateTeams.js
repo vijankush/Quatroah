@@ -11,8 +11,8 @@ const db = admin.firestore();
 
 // populate nba teams
 const nba = require('./nba');
-nba.forEach((team) => {
-  db.collection('nba').add({
+nba.forEach(async (team) => {
+  await db.collection('nba').add({
     abb: team.abbreviation,
     name: team.name,
     simpleName: team.simpleName,
@@ -26,8 +26,8 @@ nba.forEach((team) => {
 
 // populate nhl teams
 const nhl = require('./nhl');
-nhl.forEach((team) => {
-  db.collection('nhl').add({
+nhl.forEach(async (team) => {
+  await db.collection('nhl').add({
     abb: team.abbreviation,
     name: team.name,
     simpleName: team.simpleName,
@@ -41,8 +41,8 @@ nhl.forEach((team) => {
 
 // populate nfl teams
 const nfl = require('./nfl');
-nfl.forEach((team) => {
-  db.collection('nfl').add({
+nfl.forEach(async (team) => {
+  await db.collection('nfl').add({
     abb: team.abbreviation,
     name: team.name,
     simpleName: team.simpleName,
