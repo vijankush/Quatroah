@@ -31,8 +31,8 @@ async function renderPredictions(user) {
         // let t1 = "NBA_Logos-master/" + team1['loc'].toLowerCase() + ".png";
         // let t2 = "NBA_Logos-master/" + team2['loc'].toLowerCase() + ".png";
 
-        $('#predictionsFeed').append(`<div class="card-content scoreCards" style="text-align: center">
-                    <span>
+        $('#predictionsFeed').append(`<div class="card-content scoreCards has-text-weight-semibold" style="text-align: center">
+                    <span style="font-size: 20px; text-transform: uppercase">
                         ${prediction['team1']} (${percent1}%) vs. ${prediction['team2']} (${percent2}%)
                     </span>
                 </div>`);
