@@ -21,20 +21,12 @@
 /* CARD STYLES */
 .section-bg {
   background-image: url('pics/background.jpg');
-  filter: 
 }
 
 .primary-card {
   min-height: 50vh;
   max-height: 50vh;
-}
-
-.card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  min-height: 92vh;
-  max-height: 92vh;
-  padding: 1.25rem;
+  padding: 1.25em;
 }
 
 .primary-card .card-body {

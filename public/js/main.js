@@ -120,7 +120,7 @@ async function latestNews() {
         //console.log(link)
         $('#miniNewsFeed').append(`<div class="card headlineCard newsCards"><span>
         <img src="${results.data.articles[i].urlToImage}" alt="Avatar" class="md-avatar rounded-circle size-1">
-        <a href="${link}">
+        <a href="${link}" target="_blank">
         ${results.data.articles[i].title} </a> </span></div>`);
     }
 }
