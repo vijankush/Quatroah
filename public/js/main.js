@@ -118,9 +118,14 @@ async function latestNews() {
     for (let i = 0; i < 6; i++) {
         let link = results.data.articles[i].url;
         //console.log(link)
+<<<<<<< Updated upstream
         $('#miniNewsFeed').append(`<div class="card headlineCard newsCards"><span>
         <img src="${results.data.articles[i].urlToImage}" alt="Avatar" class="md-avatar rounded-circle size-1">
         <a href="${link}">
+=======
+        $('#miniNewsFeed').append(`<div class="card headlineCard newsCards""><i class="icon-check text-info mr-2"></i> <span> 
+        <a href="${link}" target="_blank">
+>>>>>>> Stashed changes
         ${results.data.articles[i].title} </a> </span></div>`);
     }
 }
