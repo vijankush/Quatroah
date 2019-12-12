@@ -183,7 +183,7 @@ $(document).ready(async () => {
 
         // delete user
         const uid = firebase.auth().currentUser.uid;
-        await firebase.auth().currentUser.delete().then(function () {
+        await firebase.auth().currentUser.delete().then(async function () {
             // User deleted.
             renderNotification('User account deleted.', false);
 
