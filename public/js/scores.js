@@ -43,6 +43,8 @@ async function getMatches() {
                     <span style="font-size: 16px; text-transform: uppercase"> <br />
                     ${matchup.status}: ${matchup.time}
                     ${matchup.home_team_score} - ${matchup.visitor_team_score}
+                    <br />
+                        ${new Date(matchup.date)}
                     </span>
                 </div>`);
             }

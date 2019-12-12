@@ -117,6 +117,7 @@ $(document).ready(() => {
         const fname = $('#fname').val();
         const lname = $('#lname').val();
         const number = $('#phoneNumber').val();
+        const favTeam = $('.drop option:selected').val();
 
         // check if fname given
         if (fname == '') {
@@ -160,6 +161,12 @@ $(document).ready(() => {
             return;
         }
 
+        if (favTeam === '...') {
+            $('#favTeam').addClass('is-danger');
+            renderNotification('Must add at least 1 team!')
+            return;
+        }
+
         // create new user
         await firebase.auth().createUserWithEmailAndPassword(email, pword).then((userCredential) => {
             // other way: firebase.auth().currentUser.uid
@@ -167,7 +174,8 @@ $(document).ready(() => {
             return firebase.firestore().collection('users').doc(uid).set({
                 firstName: fname,
                 lastName: lname,
-                phoneNum: number
+                phoneNum: number,
+                teams: favTeam
             });
         }).catch(function (error) {
             // Handle Errors here.
