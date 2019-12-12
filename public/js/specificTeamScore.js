@@ -29,6 +29,7 @@ async function getMatches(){
     var name = window.location.hash;
     name = name.replace(/%20/g, " ");
     name = name.substr(1);
+    if (name == "Los Angeles Clippers") name = "LA Clippers";
     matchups.forEach((matchup) => {
             if(matchup.period == 4 && matchup.home_team.full_name == name || matchup.visitor_team.full_name == name){
                 if (matchup.visitor_team_score > 0) {
