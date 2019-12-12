@@ -39,6 +39,7 @@ function resetStatus() {
     $('#email').removeClass('is-danger');
     $('#pword').removeClass('is-danger');
     $('#rpword').removeClass('is-danger');
+    $('#favteam').removeClass('is-danger');
 
     // remove notification
     $('.notification').removeClass('is-danger is-success')
@@ -117,7 +118,7 @@ $(document).ready(() => {
         const fname = $('#fname').val();
         const lname = $('#lname').val();
         const number = $('#phoneNumber').val();
-        const favTeam = $('.drop option:selected').val();
+        const favTeam = $('#favteam option:selected').val();
 
         // check if fname given
         if (fname == '') {
@@ -162,7 +163,7 @@ $(document).ready(() => {
         }
 
         if (favTeam === '...') {
-            $('#favTeam').addClass('is-danger');
+            $('#favteam').addClass('is-danger');
             renderNotification('Must add at least 1 team!')
             return;
         }
