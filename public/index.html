@@ -1,99 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Qt</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-start">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quatroah</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="swipe.css">
+    <link rel="stylesheet" href="swipe2.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slide.css">
+
+
+    <!-- needed libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- firebase libraries -->
+    <script defer src="/__/firebase/7.4.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.4.0/firebase-auth.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script defer type="module" src="js/main.js"></script>
+    <script defer type="module" src="js/debouncing.js"></script>
+    <script defer type="module" src="js/matches.js"></script>
+    <script> 
+        $(function(){
+        //   $("#includedContent").load("swiper.html"); 
+        });
+        </script> 
+    <!-- <script src="js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script> -->
+</head>
+
+<body>
+    <!-- NAV MENU -->
+    <nav class="navbar navbar-light navbar-expand-md custom-header">
+        <div class="container-fluid">
+            <div class="navbar-end">
                 <div class="navbar-item">
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
+                    <a role="button" id="logo" href="/">
                     </a>
                 </div>
+            </div>
 
-                <div class="navbar-item">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav links">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/">HOME</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="scores.html">GAME SCORES</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="news.html">NEWS</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li> -->
+                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="#"> PREDICTIONS
+                            <span class="badge badge-pill badge-primary"> new</span></a></li>
+                    <li class="nav-item" role="presentation">
+                        <form autocomplete="off" action="">
+                            <div>
+                                <input id="myInput" type="text" placeholder="Search Teams or Players..">
+                            </div>
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </li>
+                </ul>
+
+                <div class="navbar-item ml-auto" id="nav-buttons">
                     <div class="buttons">
-                        <a class="button is-light">
-                            Log in
-                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV MENU -->
 
-                        <a class="button is-info">
-                            <strong>Sign up</strong>
-                        </a>
+    <!-- SLIDER -->
+    <section id="carousel">
+        <div class="carousel slide carousel-fade" data-ride="carousel" id="carousel-1">
+            <div class="carousel-inner  " role="listbox">
+                <div class="carousel-item">
+                    <div class="jumbotron hero-nature carousel-hero" style="filter: blur(0px);height: 500px;">
+                        <h1 class="hero-title" style="padding-top: 100px;">An NBA Fan's Four Essentials</h1>
+                        <h2 class="slideText">The Scores, The News, Your Favorite Team, and Predicting The Next Win!
+                        </h2>
+                        <!-- <p><a class="btn btn-primary hero-button plat" role="button" href="#">Learn more</a></p> -->
+                    </div>
+                </div>
+
+                <div class="carousel-item active">
+                    <div class="jumbotron hero-photography carousel-hero" style="filter: blur(0px);height: 500px;">
+                        <h1 class="hero-title" style="padding-top: 100px;">Stay In The Know Around The League</h1>
+                        <h2 class="slideText">Never Miss Your Shot To Keep Up With Scores</h2>
+                        <!-- <p><a class="btn btn-primary hero-button plat" role="button" href="#">Learn more</a></p> -->
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="jumbotron hero-technology carousel-hero" style="filter: blur(0px);height: 500px;">
+                        <h1 class="hero-title" style="padding-top: 100px;">You Can be The GOAT</h1>
+                        <h2 class="slideText">Always Win Using The Quatroah Prediction Generator</h2>
+                        <!-- <p><a class="btn btn-primary hero-button plat" role="button" href="#">Learn more</a></p> -->
                     </div>
                 </div>
             </div>
 
-            <div class="navbar-end">
-                <div class="navbar-item" href="https://bulma.io">
-                    <a role="button" id="logo" class="is-size-4-desktop has-text-weight-medium">Quatroah</a>
+            <div>
+                <a class="carousel-control-prev carousel-fade" href="#carousel-1" role="button" data-slide="prev">
+                    <!-- <i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a> -->
+
+                <a class="carousel-control-next carousel-fade" href="#carousel-1" role="button" data-slide="next">
+                    <!-- <i class="fa fa-chevron-right"></i><span class="sr-only">Next</span> -->
+                </a>
+            </div>
+
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-1" data-slide-to="0"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2" class="active"></li>
+            </ol>
+        </div>
+    </section>
+    <!-- END SLIDER -->
+    <!-- CARDS -->
+    <section class="section section-bg">
+        <div class="columns">
+            <div class="column">
+                <div class="card" id="score-card">
+                    <div class="card-body">
+                        <h4 class="title card-title has-text-white">Latest Matchups</h4>
+                        <p class="card-text has-text-white" id="scores"></p>
+                    </div>
+
+                    <footer class="card-footer">
+                        <a href="scores.html"><button class="btn btn-primary" type="button">See More Scores</button></a>
+                    </footer>
+                </div>
+
+                <div class="card" id="team-card">
+                    <div class="card-body">
+                        <h4 class="title card-title has-text-white">Favorite Teams</h4>
+                        <p class="card-text has-text-centered has-text-white"></p>
+                    </div>
+
+                    <footer class="card-footer">
+                        <button class="btn btn-primary" type="button">Button</button>
+                    </footer>
                 </div>
             </div>
-        </nav>
 
-        <!-- Button to open the modal login form -->
-<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+            <div class="column">
+                <div class="card" id="news-card">
+                    <div class="card-body">
+                        <h4 class="title card-title has-text-white">Latest Headlines</h4>
+                        <p class="card-text" id="miniNewsFeed"></p>
+                    </div>
 
-<!-- The Modal -->
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
+                    <footer class="card-footer">
+                        <a href="news.html"> <button class="btn btn-primary" type="button">More News</button></a>
+                    </footer>
+                </div>
 
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
-    <!-- <div class="imgcontainer">
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div> -->
+                <div class="card" id="predict-card">
+                    <div class="card-body">
+                        <h4 class="title card-title has-text-white">Prediction Calculator</h4>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="includedContent">
+    </section>
+    <!-- END CARDS -->
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+    <!-- <div class="pricing6 py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h6 class="subtitle font-weight-normal">UPCOMING MATCHES</h6>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h6 class="subtitle font-weight-normal">LATEST MATCHES</h6>
+                </div>
+            </div> -->
+    <!-- row  -->
+    <!-- <div class="row mt-4"> -->
+    <!-- column  -->
+    <!-- <div class="col-md-6">
+                  <div class="card card-shadow border-0 mb-4">
+                    <div class="card-body p-4" id="pullmatch">
+                      <div class="d-flex align-items-center">
+                          <div class="align-self-center">
+                              <ul class="list-inline pl-3 font-14 font-weight-medium text-dark" id="latest">
+                              </ul>
+                            </div>
+                      </div> -->
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+    <!-- <div class="d-flex align-items-center">
+                        <h5 class="font-weight-medium mb-0">Basic Plan</h5>
+                        <div class="ml-auto"><span class="badge badge-danger font-weight-normal p-2">Popular</span></div>
+                      </div> -->
+    <!-- <div class="row">
+                        <div class="col-lg-5 text-center">
+                          <div class="price-box my-3">
+                            <sup>$</sup><span class="text-dark display-5">36</span>
+                            <h6 class="font-weight-light">MONTHLY</h6>
+                            <a class="btn btn-info-gradiant font-14 border-0 text-white p-3 btn-block mt-3" href="#">CHOOSE PLAN </a>
+                          </div>
+                        </div>
+                        <div class="col-lg-7 align-self-center">
+                          <ul class="list-inline pl-3 font-14 font-weight-medium text-dark">
+                            <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>6 Days a Week </span></li>
+                            <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>Dedicated Trainer</span></li>
+                            <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>Diet Plan Included </span></li>
+                            <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>Morning and Evening Batches</span></li>
+                          </ul>
+                        </div>
+                      </div> -->
 
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+</body>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
-
-<script>
-    // Get the modal
-    var modal = document.getElementById('id01');
-    
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    </script>
-
-        <!-- update the version number as needed -->
-        <script defer src="/__/firebase/7.4.0/firebase-app.js"></script>
-        <!-- initialize the SDK after all desired features are loaded -->
-        <script defer src="/__/firebase/init.js"></script>
-
-        <script
-			  src="https://code.jquery.com/jquery-3.4.1.min.js"
-			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			  crossorigin="anonymous"></script>
-        <script type="module" src="js/main.js"></script>
-    </body>
 </html>
