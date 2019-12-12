@@ -1,7 +1,3 @@
-body { 
-  background-color: #363636;
-}
-
 /* NAVBAR STYLES */
 *, ::after, ::before {
   box-sizing: border-box;
@@ -20,16 +16,21 @@ body {
 }
 
 /* CARD STYLES */
+.section-bg {
+  background-color: #363636;
+}
+
 .primary-card {
   min-height: 50vh;
   max-height: 50vh;
 }
 
 .primary-card .card-body {
-  overflow: scroll;
+  overflow-y: scroll;
+  font-size: 18px;
 }
 
-.primary-card .title {
+.primary-card .title, .primary-card .card-text {
   color: #fff;
 }
 
@@ -49,14 +50,18 @@ body {
   color: #212529;
 }
 
-.scoreCard {
+#scores div {
   box-shadow: 0 4px 8px 0 rgba(113, 9, 9, 0.2);
   transition: 0.3s;
   padding: 2px 16px;
   margin-top: 5px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: large;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
+}
+
+#team-card.primary-card .card-text {
+  font-size: 22px;
 }
 
 .column > .card{
@@ -182,7 +187,21 @@ img.dropdown-image {
   height: 70px;
   width: 200px;
   /* border-block-style: solid lightblue; */
+}
 
+nav.navbar .icon-btn {
+  display: inline-flex;
+  position: relative;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  margin: 0 0.5em;
+  justify-content: center;
+  text-align: center;
+}
+
+nav.navbar .icon-btn .icon > i {
+  color: #fff;
 }
 
 /* LOGIN PAGE STYLES */

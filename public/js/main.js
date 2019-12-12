@@ -1,3 +1,4 @@
+/** TEAMS WITH THEIR ABBREVIATIONS */
 const ABBR_TEAMS = {
     '76ers': 'phi',
     'blazers': 'por',
@@ -30,6 +31,9 @@ const ABBR_TEAMS = {
     'warriors': 'gsw',
     'wizards': 'was',
 }
+
+/** GET THE TOP N HEADLINES */
+const TOP_N_HEADLINES = 5;
 
 /**
  * Helper function to get today's date
@@ -65,13 +69,13 @@ async function latestMatches() {
     matchups.forEach((matchup) => {
         //console.log(matchup.status)
         if (matchup.period != 0) {
-            $('#scores').append(`<div class="scoreCard"><i class="icon-check text-info mr-2"></i> <span>
+            $('#scores').append(`<div><span>
                 ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name} <br />
                 ${matchup.home_team_score} -- ${matchup.visitor_team_score}
                 ${matchup.status}: ${matchup.time}
                 </span></div>`);
         } else {
-            $('#scores').append(`<div class="scoreCard"><i class="icon-check text-info mr-2"></i> <span>` +
+            $('#scores').append(`<div><span>` +
                 matchup.home_team.full_name +
                 ` vs. ` + matchup.visitor_team.full_name + `<br>` + ` Tip-Off: ` + matchup.status
                 + "  on " + matchup.date.substring(0, 9) +
@@ -101,10 +105,10 @@ async function latestNews() {
         }
     });
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < TOP_N_HEADLINES; i++) {
         let link = results.data.articles[i].url;
         //console.log(link)
-        $('#miniNewsFeed').append(`<div class="card headlineCard newsCards""><i class="icon-check text-info mr-2"></i> <span> 
+        $('#miniNewsFeed').append(`<div class="card headlineCard newsCards"><span> 
         <a href="${link}">
         ${results.data.articles[i].title} </a> </span></div>`);
     }
@@ -131,9 +135,14 @@ function renderNavButtons(isLoggedIn) {
     let btns = '';
 
     if (isLoggedIn) {
-        btns = '<button class="button is-light" onclick="signOut()"> \
+        btns = '<a class="icon-btn" href="settings.html"> \
+                    <span class="icon is-medium"> \
+                        <i class="fa fa-cog"></i> \
+                    </span> \
+                </a> \
+                <a id="btn-signout" class="button is-light is-outlined"> \
                     Sign Out \
-                </button>';
+                </a>';
     } else {
         btns = '<a class="button is-light" href="login.html"> \
                     Log in \
@@ -158,11 +167,13 @@ function renderFavTeams(isLoggedIn) {
     if (isLoggedIn) {
         teams = '';
     } else {
-        teams = 'Not logged in';
+        teams = 'PLEASE<br /><br /> \
+                    <a class="button is-large is-primary is-outlined" href="login.html">Login</a> \
+                <br /><br />TO SEE YOUR FAVORITE TEAMS!';
     }
 
     // append to html
-    $('#predict-card .card-text').html(teams);
+    $('#team-card .card-text').html(teams);
 }
 
 // see if user has signed in
@@ -177,6 +188,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 $(document).ready(() => {
+    // update index
     latestMatches();
     latestNews();
+
+    // set signout handler
+    $('.navbar').on('click', '#btn-signout', signOut);
 });
