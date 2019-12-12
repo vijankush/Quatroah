@@ -83,7 +83,6 @@ async function getMatches(){
             //         `</span></div>`);
             // }
     });
-
 }
 
 $(document).ready(() => {

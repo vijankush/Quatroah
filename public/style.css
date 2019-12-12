@@ -534,3 +534,7 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
+
+h1.logo {
+  color: #111;
+}

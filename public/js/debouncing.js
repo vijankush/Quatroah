@@ -43,6 +43,12 @@ function autocomplete(inp, arr) {
     inp.addEventListener("keydown", function(e) {
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
+
+        window.onclick = function(e) {
+          //console.log($(e.target).text());
+          window.location = `specificTeamScore.html#${$(e.target).text()}`;
+          addActive(x);
+        }
         if (e.keyCode == 40) {
           /*If the arrow DOWN key is pressed,
           increase the currentFocus variable:*/
@@ -57,6 +63,8 @@ function autocomplete(inp, arr) {
           addActive(x);
         } else if (e.keyCode == 13) {
           /*If the ENTER key is pressed, prevent the form from being submitted,*/
+          window.location = `specificTeamScore.html#${$(e.target).text()}`;
+          addActive(x);
           e.preventDefault();
           if (currentFocus > -1) {
             /*and simulate a click on the "active" item:*/
@@ -99,23 +107,23 @@ function autocomplete(inp, arr) {
   /*An array containing all the team names in the NBA:*/
   var teams = [
     'Philadelphia 76ers',
-    'Portlant Trail Blazers',
+    'Portland Trail Blazers',
     'Milwaukee Bucks',
     'Chicago Bulls',
     'Cleveland Cavaliers',
     'Boston Celtics',
-    'Los Angelos Clippers',
+    'Los Angeles Clippers',
     'Memphis Grizzlies',
-    'Atlant Hawks',
+    'Atlanta Hawks',
     'Miami Heat',
     'Charlotte Hornets',
     'Utah Jazz',
-    'Sacremento Kings',
+    'Sacramento Kings',
     'New York Knicks',
-    'Los Angelos Lakers',
+    'Los Angeles Lakers',
     'Orlando Magic',
     'Dallas Mavericks',
-    'New York Nets',
+    'Brooklyn Nets',
     'Denver Nuggets',
     'Indiana Pacers',
     'New Orleans Pelicans',
@@ -123,7 +131,7 @@ function autocomplete(inp, arr) {
     'Toronto Raptors',
     'Houston Rockets',
     'San Antonio Spurs',
-    'Pjeonix Suns',
+    'Pheonix Suns',
     'Oklahoma City Thunder',
     'Minnesota Timberwolves',
     'Golden State Warriors',
