@@ -33,6 +33,12 @@ async function getMatches(){
     matchups.forEach((matchup) => {
             if(matchup.period == 4 && matchup.home_team.full_name == name || matchup.visitor_team.full_name == name){
                 if (matchup.visitor_team_score > 0) {
+                    // $('#scoreFeed').append(`<div class="card scoreCards"><i class="icon-check text-info mr-2"></i> <span>` +
+                    // matchup.home_team.full_name + 
+                    //     ` vs. ` + matchup.visitor_team.full_name +`<br>`
+                    //         + matchup.status + ": " + matchup.time +  
+                    //         + matchup.home_team_score+  `--` + matchup.visitor_team_score + 
+                    //     `</span></div>`);
                     let t1 = "NBA_Logos-master/" + matchup.home_team.city.toLowerCase() + ".png";
                     let t2 = "NBA_Logos-master/" + matchup.visitor_team.city.toLowerCase() + ".png";
 
@@ -43,7 +49,8 @@ async function getMatches(){
                     <img src="${t2}" alt="Avatar" class="md-avatar rounded-circle">
                         <span style="font-size: 16px; text-transform: uppercase"> <br />
                         ${matchup.status}: ${matchup.time}
-                        ${matchup.home_team_score} - ${matchup.visitor_team_score}
+                        ${matchup.home_team_score} - ${matchup.visitor_team_score} <br />
+                        ${new Date(matchup.date)}
                         </span>
                     </div>`);
                     }
