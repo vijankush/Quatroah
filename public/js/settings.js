@@ -1,3 +1,6 @@
+/** Redirect timeout in milliseconds */
+const REDIRECT_TIMEOUT = 1000;
+
 /**
  * Helper function to determine if a string is an email
  * 
@@ -36,6 +39,7 @@ function resetStatus() {
     $('#email').removeClass('is-danger');
     $('#pword').removeClass('is-danger');
     $('#rpword').removeClass('is-danger');
+    $('#favteam').removeClass('is-danger');
 
     // remove notification
     $('.notification').removeClass('is-danger is-success')
@@ -69,10 +73,11 @@ firebase.auth().onAuthStateChanged(async function (user) {
         const uid = user.uid;
         await firebase.firestore().collection('users').doc(uid).get().then(function (doc) {
             if (doc.exists) {
+                $('#email').val(user.email);
                 $('#fname').val(doc.data().firstName);
                 $('#lname').val(doc.data().lastName);
                 $('#phoneNumber').val(doc.data().phoneNum);
-                console.log("Document data:", doc.data());
+                $(`#favteam option:contains("${doc.data().teams}")`).attr('selected', 'selected');
             } else {
                 // doc.data() will be undefined in this case
                 renderNotification('Server error');
@@ -96,10 +101,10 @@ $(document).ready(async () => {
         // check if logged in
         if (firebase.auth().currentUser) {
             // retreive values
-            // const email = $('#email').val();
             const fname = $('#fname').val();
             const lname = $('#lname').val();
             const number = $('#phoneNumber').val();
+            const favTeam = $('#favteam option:selected').val();
 
             // check if fname given
             if (fname == '') {
@@ -115,13 +120,6 @@ $(document).ready(async () => {
                 return;
             }
 
-            // check if correct email format
-            // if (email === '' || !isEmail(email)) {
-            //     $('#email').addClass('is-danger');
-            //     renderNotification('Invalid email!');
-            //     return;
-            // }
-
             // check if correct number format
             if (number === '' || !isPhoneNumber(number)) {
                 $('#phoneNumber').addClass('is-danger');
@@ -129,18 +127,79 @@ $(document).ready(async () => {
                 return;
             }
 
+            // check if fav team chosen
+            if (favTeam === '...') {
+                $('#favteam').addClass('is-danger');
+                renderNotification('Must add at least 1 team!')
+                return;
+            }
+
             // update database
-            const uid = firebase.auth().currentUser.uid;
-            await firebase.firestore().collection('users').doc(uid).update({
+            const user = firebase.auth().currentUser;
+            await firebase.firestore().collection('users').doc(user.uid).update({
                 firstName: fname,
                 lastName: lname,
-                phoneNum: number
+                phoneNum: number,
+                teams: favTeam
             }).then(() => {
                 renderNotification("Saved profile.", false);
             }).catch((err) => {
                 renderNotification(err.message);
             });
+
         }
+    });
+
+    // save advanced changes click handler
+    $('#save').on('click', async function () {
+        // reset indicators
+        resetStatus();
+
+        // retreive values
+        const email = $('#email').val();
+
+        // check if correct email format
+        if (email === '' || !isEmail(email)) {
+            $('#email').addClass('is-danger');
+            renderNotification('Invalid email!');
+            return;
+        }
+
+        // update database
+        const user = firebase.auth().currentUser;
+        user.updateEmail(email).then(function () {
+            // Update successful.
+            renderNotification("Advanced Settings Updated.", false);
+        }).catch(function (err) {
+            // An error happened.
+            renderNotification(err.message);
+        });
+    });
+
+    // delete account click handler
+    $('#delete').on('click', async function () {
+        // reset indicators
+        resetStatus();
+
+        // delete user
+        const uid = firebase.auth().currentUser.uid;
+        await firebase.auth().currentUser.delete().then(function () {
+            // User deleted.
+            renderNotification('User account deleted.', false);
+
+            // delete database doc
+            await firebase.firestore().collection('users').doc(uid).delete().then(function() {
+                // deleted
+            }).catch(function(err) {
+                renderNotification(err.message);
+            });
+
+            // redirect user
+            setTimeout(() => { window.location.href = './'; }, REDIRECT_TIMEOUT); // redirect after timeout
+        }).catch(function (err) {
+            // An error happened.
+            renderNotification(err.message);
+        });
     });
 
     // remove notification

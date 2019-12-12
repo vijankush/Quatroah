@@ -27,8 +27,8 @@ section#section1 {
 }
 
 .primary-card {
-  min-height: 85vh;
-  max-height: 85vh;
+  min-height: 75vh;
+  max-height: 75vh;
   padding: 1.25em;
 }
 
