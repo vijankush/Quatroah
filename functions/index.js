@@ -63,7 +63,7 @@ const validateFirebaseIdToken = async (req, res, next) => {
 // enable middleware
 app.use(cors);
 app.use(cookieParser);
-app.use(validateFirebaseIdToken);
+// app.use(validateFirebaseIdToken);
 
 // test endpoint
 app.get('/api', (req, res) => {
@@ -72,23 +72,31 @@ app.get('/api', (req, res) => {
 
 // get nba teams
 app.get('/api/teams/nba', async (req, res) => {
-    const snapshot = await db.collection('nba').get();
+    const snapshot = await db.collection('nba').orderBy('abb').get();
     res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
     res.send(snapshot.docs.map(doc => doc.data()));
 });
 
 // get nfl teams
 app.get('/api/teams/nfl', async (req, res) => {
-    const snapshot = await db.collection('nfl').get();
+    const snapshot = await db.collection('nfl').orderBy('abb').get();
     res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
     res.send(snapshot.docs.map(doc => doc.data()));
 });
 
 // get nhl teams
 app.get('/api/teams/nhl', async (req, res) => {
-    const snapshot = await db.collection('nhl').get();
+    const snapshot = await db.collection('nhl').orderBy('abb').get();
     res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
     res.send(snapshot.docs.map(doc => doc.data()));
+});
+
+// get predictions
+app.get('/api/predictions/:year', async (req, res) => {
+    const year = req.params['year'];
+    const date = req.query['date'];
+    const snapshot = await db.collection(`predictions-${year}`).limit(100).get();
+    if (snapshot) res.send(snapshot.docs.map(doc => doc.data()));
 });
 
 // This HTTPS endpoint can only be accessed by your Firebase Users.

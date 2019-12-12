@@ -19,9 +19,14 @@ function renderNavButtons(isLoggedIn) {
     let btns = '';
 
     if (isLoggedIn) {
-        btns = '<button class="button is-light" onclick="signOut()"> \
+        btns = '<a class="icon-btn" href="settings.html"> \
+                    <span class="icon is-medium"> \
+                        <i class="fa fa-cog"></i> \
+                    </span> \
+                </a> \
+                <a id="btn-signout" class="button is-light is-outlined"> \
                     Sign Out \
-                </button>';
+                </a>';
     } else {
         btns = '<a class="button is-light" href="login.html"> \
                     Log in \
@@ -42,4 +47,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     } else {
         renderNavButtons(false);
     }
+});
+
+$(document).ready(() => {
+    // set signout handler
+    $('.navbar').on('click', '#btn-signout', signOut);
 });
