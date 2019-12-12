@@ -51,6 +51,7 @@ function getTodayDate() {
  * Get upcoming matchups and add to page
  */
 async function latestMatches() {
+    // console.log(<TOR />);
     // get today's date
     var today = getTodayDate();
     // get the current games
@@ -59,7 +60,7 @@ async function latestMatches() {
         url: 'https://www.balldontlie.io/api/v1/games',
         params: {
             'dates[]': today,
-            'per_page': 4
+            'per_page': 5
         }
     });
 
@@ -117,7 +118,8 @@ async function latestNews() {
     for (let i = 0; i < 6; i++) {
         let link = results.data.articles[i].url;
         //console.log(link)
-        $('#miniNewsFeed').append(`<div class="card headlineCard newsCards"><span> 
+        $('#miniNewsFeed').append(`<div class="card headlineCard newsCards"><span>
+        <img src="${results.data.articles[i].urlToImage}" alt="Avatar" class="md-avatar rounded-circle size-1">
         <a href="${link}">
         ${results.data.articles[i].title} </a> </span></div>`);
     }
