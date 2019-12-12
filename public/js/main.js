@@ -148,28 +148,20 @@ async function favTeamScore(user) {
         renderNotification('Please login!');
     }
 
-    var today = new Date();
-    today.setDate(today.getDate());
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
-
     let weekAgo = new Date();
-    weekAgo.setDate(weekAgo.getDate() -7);
+    weekAgo.setDate(weekAgo.getDate() - 7);
     var dd = String(weekAgo.getDate()).padStart(2, '0');
     var mm = String(weekAgo.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = weekAgo.getFullYear();
-    weekAgo= yyyy + '-' + mm + '-' + dd;
-    let dates = [weekAgo, today]
+    weekAgo = yyyy + '-' + mm + '-' + dd;
 
     // get the current games
     const results = await axios({
         method: 'get',
         url: 'https://www.balldontlie.io/api/v1/games',
         params: {
-            'start_date':weekAgo, 
-            'end_date': today,
+            'start_date': weekAgo,
+            'end_date': getTodayDate(),
             'per_page': 500
         }
     });
@@ -258,7 +250,7 @@ function renderFavTeams(isLoggedIn = true) {
     let teams = '';
 
     if (isLoggedIn) {
-        teams = '';
+        favTeamScore(firebase.auth().currentUser);
     } else {
         teams = 'PLEASE<br /><br /> \
                     <a class="button is-large is-primary is-outlined" href="login.html">Login</a> \
@@ -303,28 +295,21 @@ async function renderPredictions(isLoggedIn = true) {
     }
 }
 
-// see if user has signed in
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) { // user signed in
-        renderNavButtons();
-        renderFavTeams();
-        renderPredictions();
-    } else {
-        renderNavButtons(false);
-        renderFavTeams(false);
-        renderPredictions(false);
-    }
-});
-
 $(document).ready(() => {
     // update index
     latestMatches();
     latestNews();
+
+    // see if user has signed in
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) { // user signed in
-            favTeamScore(user);
+            renderNavButtons();
+            renderFavTeams();
+            renderPredictions();
         } else {
-            $('#miniTeamScore').html('Log in to continue!');
+            renderNavButtons(false);
+            renderFavTeams(false);
+            renderPredictions(false);
         }
     });
 
