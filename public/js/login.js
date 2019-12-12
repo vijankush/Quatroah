@@ -197,4 +197,11 @@ $(document).ready(() => {
         $('.tabs li').first().addClass('is-active');
         $('.tab-content[data-tab="1"]').addClass('is-active');
     }
+
+    // remove notification
+    $('.delete').click(() => {
+        $('.notification').removeClass('is-danger is-success')
+            .addClass('is-hidden')
+            .contents().filter(isTextNode).remove();
+    });
 });
