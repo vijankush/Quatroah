@@ -125,6 +125,88 @@ async function latestNews() {
     }
 }
 
+async function favTeamScore(user) {
+    // get today's date
+    if (user) {
+        // automatically populate fields if user signed in
+        $('div.container').removeClass('is-hidden');
+        const uid = user.uid;
+        var name;
+        await firebase.firestore().collection('users').doc(uid).get().then(function (doc) {
+            if (doc.exists) {
+                name = doc.data().teams;
+            } else {
+                // doc.data() will be undefined in this case
+                renderNotification('Server error');
+                console.log("Document does not exist!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    } else {
+        $('div.container').addClass('is-hidden');
+        renderNotification('Please login!');
+    }
+
+    var today = new Date();
+    today.setDate(today.getDate());
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+
+    let weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() -7);
+    var dd = String(weekAgo.getDate()).padStart(2, '0');
+    var mm = String(weekAgo.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = weekAgo.getFullYear();
+    weekAgo= yyyy + '-' + mm + '-' + dd;
+    let dates = [weekAgo, today]
+
+    // get the current games
+    const results = await axios({
+        method: 'get',
+        url: 'https://www.balldontlie.io/api/v1/games',
+        params: {
+            'start_date':weekAgo, 
+            'end_date': today,
+            'per_page': 500
+        }
+    });
+
+    const matchups = results.data.data;
+
+    if (name == "Los Angeles Clippers") name = "LA Clippers";
+    matchups.forEach((matchup) => {
+        if (matchup.period != 0 && matchup.home_team.full_name == name || matchup.visitor_team.full_name == name) {
+            let t1 = "NBA_Logos-master/" + matchup.home_team.city.toLowerCase() + ".png";
+            let t2 = "NBA_Logos-master/" + matchup.visitor_team.city.toLowerCase() + ".png";
+            $('#miniTeamScore').append(`<div>
+            <img src="${t1}" alt="Avatar" class="md-avatar rounded-circle">
+            <span>
+                ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name}</span>
+            <img src="${t2}" alt="Avatar" class="md-avatar rounded-circle">
+                <span style="font-size: 16px; text-transform: uppercase"> <br />
+                ${matchup.status}: ${matchup.time}
+                ${matchup.home_team_score} - ${matchup.visitor_team_score}
+                </span>
+            </div>`);
+        } else {
+            if (matchup.home_team.full_name == name || matchup.visitor_team.full_name == name) {
+                let t1 = "NBA_Logos-master/" + matchup.home_team.city.toLowerCase() + ".png";
+                let t2 = "NBA_Logos-master/" + matchup.visitor_team.city.toLowerCase() + ".png";
+                $('#miniTeamScore').append(`<div>
+                <img src="${t1}" alt="Avatar" class="md-avatar rounded-circle">
+                <span>
+                    ${matchup.home_team.full_name} vs. ${matchup.visitor_team.full_name}</span>
+                <img src="${t2}" alt="Avatar" class="md-avatar rounded-circle">
+                    <span style="font-size: 16px; text-transform: uppercase"><br />
+                    Tip-Off: ${matchup.status} on ${matchup.date.substring(0, 9)}</span></div>`);
+            }
+        }
+    });
+}
+
 /**
  * Log the user out
  */
@@ -238,6 +320,13 @@ $(document).ready(() => {
     // update index
     latestMatches();
     latestNews();
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) { // user signed in
+            favTeamScore(user);
+        } else {
+            $('#miniTeamScore').html('Log in to continue!');
+        }
+    });
 
     // set signout handler
     $('.navbar').on('click', '#btn-signout', signOut);

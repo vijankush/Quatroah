@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quatroah</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="scores.css">
+
+    <!-- needed libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- firebase libraries -->
+    <script defer src="/__/firebase/7.4.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.4.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.4.0/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script defer type="module" src="js/page.js"></script>
+    <script defer type="module" src="js/debouncing.js"></script>
+    <script defer type="module" src="js/favTeam.js"></script>
+
+</head>
+
+<body>
+    <!-- NAV MENU -->
+    <nav class="navbar navbar-light navbar-expand-md custom-header">
+        <div class="container-fluid">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a role="button" id="logo" href="/">
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav links">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="scores.html">GAME SCORES</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="news.html">NEWS</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li> -->
+                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="predictions.html">
+                            PREDICTIONS
+                            <span class="badge badge-pill badge-primary"> new</span></a></li>
+                    <li class="nav-item" role="presentation">
+                        <form autocomplete="off">
+                            <div>
+                                <input id="myInput" type="text" placeholder="Search Teams..">
+                            </div>
+                            <i class="fa fa-search"></i>
+                        </form>
+                    </li>
+                </ul>
+
+                <div class="navbar-item ml-auto" id="nav-buttons">
+                    <div class="buttons">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV MENU -->
+
+    <div>
+        <section class="hero is-info">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title logo">
+                        Your Favorite Team
+                    </h1>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="cardFeed" id="teamFeed">
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
