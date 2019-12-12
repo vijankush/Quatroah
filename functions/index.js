@@ -9,10 +9,22 @@ const db = admin.firestore();
 // import other dependencies
 const express = require('express');
 const cookieParser = require('cookie-parser')();
-const cors = require('cors')({origin: true});
+const cors = require('cors')({ origin: true });
 
 // set up expressjs
 const app = express();
+
+/**
+ * Helper function to get today's date
+ */
+const getTodayDate = function () {
+    var today = new Date();
+    today.setDate(today.getDate() - 1);
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    return yyyy + '-' + mm + '-' + dd;
+}
 
 // Express middleware that validates Firebase ID Tokens passed in the Authorization HTTP header.
 // The Firebase ID token needs to be passed as a Bearer token in the Authorization HTTP header like this:
@@ -37,8 +49,8 @@ const validateFirebaseIdToken = async (req, res, next) => {
         console.log('Found "Authorization" header');
         // Read the ID Token from the Authorization header.
         idToken = req.headers.authorization.split('Bearer ')[1];
-    } else if(req.cookies) {
-    console .log('Found "__session" cookie');
+    } else if (req.cookies) {
+        console.log('Found "__session" cookie');
         // Read the ID Token from cookie.
         idToken = req.cookies.__session;
     } else {
@@ -92,10 +104,23 @@ app.get('/api/teams/nhl', async (req, res) => {
 });
 
 // get predictions
-app.get('/api/predictions/:year', async (req, res) => {
+app.get('/api/predictions/:year', validateFirebaseIdToken, async (req, res) => {
     const year = req.params['year'];
-    const date = req.query['date'];
-    const snapshot = await db.collection(`predictions-${year}`).limit(100).get();
+    const date = req.query['date'] ? req.query['date'] : getTodayDate();
+
+    const snapshot = await db.collection(`predictions-${year}`)
+        .where('date', '==', date)
+        .orderBy('team1').get();
+
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    if (snapshot) res.send(snapshot.docs.map(doc => doc.data()));
+});
+
+// get predictions
+app.get('/api/predictions/:year/all', validateFirebaseIdToken, async (req, res) => {
+    const year = req.params['year'];
+    const snapshot = await db.collection(`predictions-${year}`).orderBy('date').limit(100).get();
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
     if (snapshot) res.send(snapshot.docs.map(doc => doc.data()));
 });
 

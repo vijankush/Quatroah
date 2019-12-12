@@ -16,7 +16,8 @@
 
     <!-- needed libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        ntegrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
@@ -48,8 +49,9 @@
                 <ul class="nav navbar-nav links">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="scores.html">GAME SCORES</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="news.html">NEWS</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="#"> PREDICTIONS
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li> -->
+                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="predictions.html">
+                            PREDICTIONS
                             <span class="badge badge-pill badge-primary"> new</span></a></li>
                     <li class="nav-item" role="presentation">
                         <form autocomplete="off" action="">
@@ -76,23 +78,18 @@
         <section class="hero is-info">
             <div class="hero-body">
                 <div class="container">
-                <h1 class="title logo">
-                    Most Recent Games
-                </h1>
+                    <h1 class="title logo">
+                        Most Recent Games
+                    </h1>
                 </div>
             </div>
         </section>
     </div>
-    <br>
+
+    <br />
     <div class="cardFeed" id="scoreFeed">
     </div>
 
-
-    <!-- SCRIPTS -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- <script src="js/matches.js"></script> -->
-
 </body>
+
 </html>

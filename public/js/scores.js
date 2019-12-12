@@ -1,59 +1,30 @@
-const ABBR_TEAMS = {
-    '76ers': 'phi',
-    'blazers': 'por',
-    'bucks': 'mil',
-    'bulls': 'chi',
-    'cavaliers': 'cle',
-    'celtics': 'bos',
-    'clippers': 'lac',
-    'grizzlies': 'mem',
-    'hawks': 'atl',
-    'heat': 'mia',
-    'hornets': 'cha',
-    'jazz': 'uta',
-    'kings': 'sac',
-    'knicks': 'nyk',
-    'lakers': 'lal',
-    'magic': 'orl',
-    'mavericks': 'dal',
-    'nets': 'bkn',
-    'nuggets': 'den',
-    'pacers': 'ind',
-    'pelicans': 'nop',
-    'pistons': 'det',
-    'raptors': 'tor',
-    'rockets': 'hou',
-    'spurs': 'sas',
-    'suns': 'phx',
-    'thunder': 'okc',
-    'timberwolves': 'min',
-    'warriors': 'gsw',
-    'wizards': 'was',
-}
-
-async function getMatches(){
+/**
+ * Helper function to get today's date
+ */
+function getTodayDate() {
     var today = new Date();
-    today.setDate(today.getDate());
+    today.setDate(today.getDate() - 1);
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
+    return yyyy + '-' + mm + '-' + dd;
+}
 
+async function getMatches() {
     let weekAgo = new Date();
-    weekAgo.setDate(weekAgo.getDate() -7);
+    weekAgo.setDate(weekAgo.getDate() - 7);
     var dd = String(weekAgo.getDate()).padStart(2, '0');
     var mm = String(weekAgo.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = weekAgo.getFullYear();
-    weekAgo= yyyy + '-' + mm + '-' + dd;
-    let dates = [weekAgo, today]
+    weekAgo = yyyy + '-' + mm + '-' + dd;
 
     // get the current games
     const results = await axios({
         method: 'get',
         url: 'https://www.balldontlie.io/api/v1/games',
         params: {
-            'start_date':weekAgo, 
-            'end_date': today,
+            'start_date': weekAgo, 
+            'end_date': getTodayDate(),
             'per_page': 35
         }
     });

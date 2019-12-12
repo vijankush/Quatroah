@@ -25,6 +25,7 @@ fs.createReadStream('nba_elo_latest.csv')
 
         // add game predictions to database
         await db.collection(`predictions-${SEASON}`).doc(doc).set({
+            'date': row['date'],
             'team1': row['team1'],
             'team2': row['team2'],
             'elo_prob1': row['elo_prob1'],

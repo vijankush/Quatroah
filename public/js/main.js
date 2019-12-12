@@ -142,7 +142,7 @@ async function signOut() {
  * 
  * @param {*} isLoggedIn True if the user is logged in, false otherwise
  */
-function renderNavButtons(isLoggedIn) {
+function renderNavButtons(isLoggedIn = true) {
     let btns = '';
 
     if (isLoggedIn) {
@@ -172,7 +172,7 @@ function renderNavButtons(isLoggedIn) {
  * 
  * @param {*} isLoggedIn True if the user is logged in, false otherwise
  */
-function renderFavTeams(isLoggedIn) {
+function renderFavTeams(isLoggedIn = true) {
     let teams = '';
 
     if (isLoggedIn) {
@@ -187,14 +187,50 @@ function renderFavTeams(isLoggedIn) {
     $('#team-card .card-text').html(teams);
 }
 
+/**
+ * Render predictions of recent games accordingly
+ * 
+ * @param {*} isLoggedIn True if the user is logged in, false otherwise
+ */
+async function renderPredictions(isLoggedIn = true) {
+    $('#predict-card .card-text').html('');
+
+    if (isLoggedIn) {
+        // get the latest predictions
+        const token = await firebase.auth().currentUser.getIdToken();
+        const results = await axios({
+            method: 'get',
+            url: 'https://quatroah.web.app/api/predictions/2020',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        // add results to div
+        const predictions = results.data;
+        predictions.forEach((prediction) => {
+            const percent1 = parseFloat(prediction.raptor_prob1 * 100).toFixed(2);
+            const percent2 = parseFloat(prediction.raptor_prob2 * 100).toFixed(2);
+            $('#predict-card .card-text').append(`${prediction.team1} (${percent1}%)
+            vs. ${prediction.team2} (${percent2}%) <hr />`);
+        });
+    } else {
+        $('#predict-card .card-text').html('PLEASE<br /><br /> \
+                    <a class="button is-large is-primary is-outlined" href="login.html">Login</a> \
+                <br /><br />TO SEE GAME PREDICTIONS!');
+    }
+}
+
 // see if user has signed in
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) { // user signed in
-        renderNavButtons(true);
-        renderFavTeams(true);
+        renderNavButtons();
+        renderFavTeams();
+        renderPredictions();
     } else {
         renderNavButtons(false);
         renderFavTeams(false);
+        renderPredictions(false);
     }
 });
 

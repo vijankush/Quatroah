@@ -46,7 +46,7 @@ function autocomplete(inp, arr) {
 
         window.onclick = function(e) {
           //console.log($(e.target).text());
-          window.location = `specificTeamScore.html#${$(e.target).text()}`;
+          window.location = `team.html#${$(e.target).text()}`;
           addActive(x);
         }
         if (e.keyCode == 40) {
@@ -63,7 +63,7 @@ function autocomplete(inp, arr) {
           addActive(x);
         } else if (e.keyCode == 13) {
           /*If the ENTER key is pressed, prevent the form from being submitted,*/
-          window.location = `specificTeamScore.html#${$(e.target).text()}`;
+          window.location = `team.html#${$(e.target).text()}`;
           addActive(x);
           e.preventDefault();
           if (currentFocus > -1) {

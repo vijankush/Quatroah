@@ -15,7 +15,7 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: goldenrod;
   text-shadow: 1px 1px black;
-  background: rgba(255, 255, 255, 0.479);
+  /* background: rgba(255, 255, 255, 0.479); */
 }
 
 /* CARD STYLES */
@@ -24,14 +24,14 @@
 }
 
 .primary-card {
-  min-height: 50vh;
-  max-height: 50vh;
+  min-height: 60vh;
+  max-height: 60vh;
   padding: 1.25em;
 }
 
 .primary-card .card-body {
   overflow-y: scroll;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .primary-card .title, .primary-card .card-text {

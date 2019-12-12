@@ -12,22 +12,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="scores.css">
 
     <!-- needed libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
     <!-- firebase libraries -->
     <script defer src="/__/firebase/7.4.0/firebase-app.js"></script>
     <script defer src="/__/firebase/7.4.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.4.0/firebase-firestore.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
     <script defer type="module" src="js/page.js"></script>
     <script defer type="module" src="js/debouncing.js"></script>
-    <script defer type="module" src="js/settings.js"></script>
+    <script defer type="module" src="js/predictions.js"></script>
+
 </head>
 
 <body>
@@ -46,7 +50,8 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="scores.html">GAME SCORES</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="news.html">NEWS</a></li>
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">TEAMS </a></li> -->
-                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="predictions.html"> PREDICTIONS
+                    <li class="nav-item" role="presentation"><a class="nav-link custom-navbar" href="predictions.html">
+                            PREDICTIONS
                             <span class="badge badge-pill badge-primary"> new</span></a></li>
                     <li class="nav-item" role="presentation">
                         <form autocomplete="off">
@@ -67,56 +72,23 @@
     </nav>
     <!-- END NAV MENU -->
 
-    <section class="section">
-        <div class="notification is-hidden">
-            <button class="delete"></button>
-        </div>
 
-        <div class="container">
-            <h1 class="title">Settings</h1>
-            <h2 class="subtitle">Update your Profile</h2>
-
-            <div class="field">
-                <label class="label">First Name</label>
-                <div class="control">
-                    <input id="fname" class="input" maxlength="50" placeholder="First Name">
+    <!-- BEGIN SCORE CARD DIVS-->
+    <div>
+        <section class="hero is-info">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title logo">
+                        Game Predictions
+                    </h1>
                 </div>
             </div>
+        </section>
+    </div>
 
-            <div class="field">
-                <label class="label">Last Name</label>
-                <div class="control">
-                    <input id="lname" class="input" maxlength="50" placeholder="Last Name">
-                </div>
-            </div>
+    <div class="cardFeed" id="predictionsFeed">
+    </div>
 
-            <div class="field">
-                <label class="label">Phone Number</label>
-                <div class="control">
-                    <input id="phoneNumber" class="input" type="tel" maxlength="30" placeholder="Phone Number">
-                </div>
-            </div>
-
-            <!-- <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                    <input id="email" class="input" type="email" maxlength="50" placeholder="Email">
-                </div>
-            </div> -->
-
-            <div class="field">
-                <div class="control">
-                    <button id="save" class="button is-link">Save Changes</button>
-                </div>
-            </div>
-        </div>
-
-        <hr />
-
-        <div class="container">
-            <h2 class="subtitle">Advanced Settings</h2>
-        </div>
-    </section>
 </body>
 
 </html>
