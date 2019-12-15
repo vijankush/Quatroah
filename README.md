@@ -1,4 +1,4 @@
-# Comp 426 Final
+# Quatroah 
 ### Objective
 The objective of the Quatroah team is to work on developing a website that displays scores, standings, and relevant news aggregated from your favorite teams. We will implement API from popular sources such as ESPN to show up-to-date data from players chosen teams. We will also implement an algorithm to display NBA and NFL winning rates and update it periodically with latest predictions. It also will predict the wins/losses of different opponent match ups, allowing logged in users to monitor different games.
 
